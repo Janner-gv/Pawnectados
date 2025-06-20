@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="shortcut icon" href="IMG/logo.icon" type="image/x-icon">
+    <title>Pawnectados</title>
+</head>
+<body>
+
+<video autoplay muted loop id="background-video">
+    <source src="IMG/Paw Patrol Latinoamérica _ Canción Oficial (Canción) _ Nick Jr..mp4" type="video/mp4">
+</video>
+
+<div class="container" id="container">
+    <div class="form-container sign-up">
+        <form id="registrarForm" method="POST">
+            <h1>Crear cuenta</h1>
+            <div class="social-icons">
+                <a href="#" class="icon"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <span>O usa tu correo electrónico para registrarte</span>
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="email" name="email" placeholder="Correo Electrónico" required>
+            <input type="text" name="telefono" placeholder="Teléfono" required>
+            <input type="text" name="direccion" placeholder="Dirección" required>
+            <select name="rol" required>
+                <option value="">Selecciona tu rol</option>
+                <option value="1">Usuario</option>
+                <option value="2">Fundación</option>
+                <option value="3">Veterinaria</option>
+            </select>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Registrarse</button>
+            <p id="mensajeRegistro"></p>
+        </form>
+    </div>
+
+    <div class="form-container sign-in">
+        <form id="loginForm"  method="POST">
+            <h1>Iniciar sesión</h1>
+            <div class="social-icons">
+                <a href="#" class="icon"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <span>O usa tu correo electrónico y contraseña</span>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <a href="#">¿Olvidaste tu contraseña?</a>
+            <button type="submit">Iniciar sesión</button>
+            <p id="mensajeLogin"></p>
+        </form>
+    </div>
+
+    <div class="toggle-container">
+        <div class="toggle">
+            <div class="toggle-panel toggle-left">
+                <h1>Bienvenido de nuevo</h1>
+                <p>Ingresa tus datos personales para acceder a todas las funciones</p>
+                <button class="hidden" id="login">Iniciar sesión</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>¡Hola amigo!</h1>
+                <p>Regístrate con tus datos personales para acceder a todas las funciones</p>
+                <button class="hidden" id="register">Registrarse</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="JS/login.js"></script>
+</body>
+</html>
