@@ -1,19 +1,19 @@
 
-package com.example.Pawnectados;
+package com.example.Pawnectados.controlador;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class Controlador {
+public class HomeController {
 
-    @GetMapping("/login")
+    @GetMapping("login")
     public String mostrarLogin() {
-        return "/login";
+        return "login";
     }
 
     @GetMapping("/")
     public String redireccionarInicio() {
-        return "redirect:/login";
+        return "redirect:login";
     }
 }
