@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const formData = new FormData(this);
 
-            fetch("http://localhost/proyecto/principal/registrar.php", {
+            fetch("http://localhost:8080/api/registro", {
                 method: "POST",
                 body: formData
             })
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const formData = new FormData(this);
 
-            fetch("http://localhost/proyecto/principal/procesar_login.php", {
+            fetch("http://localhost:8080/api/login", {
                 method: "POST",
                 body: formData,
                 credentials: "include" // Asegura que se usen las cookies de sesión
