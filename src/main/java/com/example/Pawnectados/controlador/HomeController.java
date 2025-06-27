@@ -10,7 +10,7 @@ public class HomeController {
     @GetMapping("/login")
     public String mostrarLogin() {
 
-        return "usuario/login";
+        return "principal/login";
     }
 
     @GetMapping("/")
