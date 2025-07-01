@@ -21,31 +21,31 @@ public class AdminController {
     @GetMapping("/admin/usuario")
     public String verUsuarios(HttpSession session) {
         return esAdmin((Usuario) session.getAttribute("usuario")) ?
-                "admin/usuarios" : "redirect:/login";
+                "usuarios/usuarios" : "redirect:/login";
     }
 
     @GetMapping("/admin/fundaciones")
     public String verFundaciones(HttpSession session) {
         return esAdmin((Usuario) session.getAttribute("usuario")) ?
-                "admin/fundaciones" : "redirect:/login";
+                "fundacion/fundaciones" : "redirect:/login";
     }
 
     @GetMapping("/admin/veterinarias")
     public String verVeterinarias(HttpSession session) {
         return esAdmin((Usuario) session.getAttribute("usuario")) ?
-                "admin/veterinarias" : "redirect:/login";
+                "veterinaria/veterinarias" : "redirect:/login";
     }
 
     @GetMapping("/admin/trabajadores")
     public String verTrabajadores(HttpSession session) {
         return esAdmin((Usuario) session.getAttribute("usuario")) ?
-                "admin/trabajadores" : "redirect:/login";
+                "trabajadores/trabajadores" : "redirect:/login";
     }
 
     @GetMapping("/admin/donaciones")
     public String verDonaciones(HttpSession session) {
         return esAdmin((Usuario) session.getAttribute("usuario")) ?
-                "admin/donaciones" : "redirect:/login";
+                "donaciones/donaciones" : "redirect:/login";
     }
 
 }

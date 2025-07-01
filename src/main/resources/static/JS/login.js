@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 window.location.href = "/veterinaria/index";
                                 break;
                             case 4:
-                                window.location.href = "/ADMINISTRADOR/Dasboard";
+                                window.location.href = "/admin/Dashboard";
                                 break
                             default:
                                 window.location.href = "/";
