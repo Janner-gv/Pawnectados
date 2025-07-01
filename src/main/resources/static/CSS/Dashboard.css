@@ -1,7 +1,78 @@
+/* Dashboard.css adaptado al estilo glass moderno */
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #ffffff;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 250px;
+  height: 100vh;
+  padding-top: 20px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  text-align: center;
+  padding: 10px;
+}
+
+.sidebar .logo {
+  max-width: 60px;
+  margin-bottom: 10px;
+}
+
+.sidebar h2 {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 15px 25px;
+  color: #ffffff;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-left: 3px solid #1cc88a;
+}
+
+.submenu {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.submenu-toggle.active + .submenu {
+  display: block;
 }
 
 .menu-btn {
@@ -18,105 +89,31 @@ body {
   cursor: pointer;
 }
 
-.sidebar {
-  width: 240px;
-  height: 100vh;
-  background-color: #1e3d59;
-  color: white;
-  position: fixed;
-  left: 0;
-  top: 0;
-  transition: transform 0.3s ease;
-  overflow-y: auto;
-  z-index: 1000;
-}
-
-.sidebar.hidden {
-  transform: translateX(-100%);
-}
-
-.sidebar-header {
-  text-align: center;
-  padding: 20px;
-}
-
-.sidebar-header .logo {
-  width: 80px;
-  height: 80px;
-}
-
-.sidebar h2 {
-  margin: 10px 0 0 0;
-  font-size: 1.5rem;
-}
-
-.sidebar nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar nav ul li a {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border-bottom: 1px solid #3a5d75;
-}
-
-.sidebar nav ul li a:hover {
-  background-color: #274e6e;
-}
-
-.submenu {
-  display: none;
-  background-color: #274e6e;
-}
-
-.submenu li a {
-  font-weight: normal;
-  padding: 10px 40px;
-}
-
-.submenu-toggle.active + .submenu {
-  display: block;
-}
-
-.flecha {
-  transition: transform 0.3s;
-}
-
-.submenu-toggle.active .flecha {
-  transform: rotate(180deg);
-}
-
 .main-dashboard {
-  margin-left: 240px;
   padding: 20px;
+  margin-left: 0;
   transition: margin-left 0.3s ease;
 }
 
-.sidebar.hidden + .main-dashboard {
-  margin-left: 0;
+.sidebar.active ~ .main-dashboard {
+  margin-left: 250px;
+}
+
+header h1 {
+  margin: 0 0 5px;
 }
 
 .cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
 }
 
 .card {
-  background: white;
   padding: 20px;
-  border-radius: 10px;
-  flex: 1 1 220px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
 }
 
 .card img {
@@ -126,53 +123,54 @@ body {
 }
 
 .charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
   margin-top: 40px;
 }
 
 .chart-container {
-  background: white;
   padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
 }
 
-.tables .table-wrapper {
+.tables {
+  margin-top: 40px;
+}
+
+.table-wrapper {
   overflow-x: auto;
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 12px;
 }
 
-table {
+.table-wrapper table {
   width: 100%;
   border-collapse: collapse;
+  color: #fff;
 }
 
-thead {
-  background-color: #1e3d59;
-  color: white;
+.table-wrapper th, .table-wrapper td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
-td, th {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
+.table-wrapper th {
+  background: rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
   .main-dashboard {
     margin-left: 0;
-    padding: 10px;
-  }
-
-  .cards {
-    flex-direction: column;
-  }
-
-  .menu-btn {
-    top: 10px;
-    left: 10px;
   }
 }
