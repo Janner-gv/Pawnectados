@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Usuario - Admin</title>
+    <link rel="stylesheet" href="/CSS/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="shortcut icon" href="/IMG/huella.icon" type="image/x-icon">
+</head>
+<body>
+
+<video autoplay muted loop id="background-video">
+    <source src="/IMG/Paw Patrol Latinoamérica _ Canción Oficial (Canción) _ Nick Jr..mp4" type="video/mp4">
+</video>
+
+<div class="container active" id="container">
+    <div class="form-container sign-up">
+        <form th:action="@{/admin/crear-usuario}" method="POST" th:object="${usuario}">
+            <h1>Crear nuevo usuario</h1>
+            <span>Ingrese la información del nuevo usuario</span>
+            <input type="text" th:field="*{nombre}" placeholder="Nombre completo o razón social" required>
+            <input type="email" th:field="*{email}" placeholder="Correo electrónico" required>
+            <input type="text" th:field="*{telefono}" placeholder="Teléfono" required>
+            <input type="text" th:field="*{direccion}" placeholder="Dirección" required>
+            <select th:field="*{rol}" required>
+                <option value="">Selecciona el tipo de usuario</option>
+                <option value="1">Persona Natural</option>
+                <option value="2">Fundación</option>
+                <option value="3">Veterinaria</option>
+            </select>
+            <input type="password" th:field="*{password}" placeholder="Contraseña" required>
+            <button type="submit">Registrar</button>
+            <p th:if="${mensaje}" th:text="${mensaje}" style="color: green;"></p>
+        </form>
+    </div>
+</div>
+
+<script src="/JS/login.js"></script>
+</body>
+</html>

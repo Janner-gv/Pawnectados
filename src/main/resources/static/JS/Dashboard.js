@@ -1,59 +1,93 @@
-window.addEventListener("DOMContentLoaded", () => {
-  // Botón para abrir/cerrar sidebar
+document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.getElementById("toggleSidebar");
   const sidebar = document.getElementById("sidebar");
 
-  toggleBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("hidden");
-  });
-
-  // Submenús
-  const submenuToggles = document.querySelectorAll(".submenu-toggle");
-  submenuToggles.forEach((toggle) => {
-    toggle.addEventListener("click", function (e) {
-      e.preventDefault();
-      this.classList.toggle("active");
-      this.nextElementSibling.classList.toggle("active");
+  if (toggleBtn && sidebar) {
+    toggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
     });
-  });
+  }
 
-  // Gráfica: Donaciones por Fundación
-  const ctxDonaciones = document.getElementById("donacionesChart").getContext("2d");
-  const donacionesChart = new Chart(ctxDonaciones, {
-    type: "bar",
-    data: {
-      labels: ["Fundación Patitas", "Ayuda Animal", "Huellitas"],
-      datasets: [{
-        label: "Donaciones ($)",
-        data: [1200, 850, 640],
-        backgroundColor: ["#4e73df", "#1cc88a", "#f6c23e"]
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { display: true }
+  // === GRÁFICA DE DONACIONES ===
+  const ctxDonaciones = document.getElementById("donacionesChart")?.getContext("2d");
+  if (ctxDonaciones) {
+    new Chart(ctxDonaciones, {
+      type: "bar",
+      data: {
+        labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun"],
+        datasets: [{
+          label: "Donaciones ($)",
+          data: [1200, 900, 1500, 1800, 950, 2100],
+          backgroundColor: [
+            "#4e73df",
+            "#1cc88a",
+            "#36b9cc",
+            "#f6c23e",
+            "#e74a3b",
+            "#858796"
+          ],
+          borderRadius: 6,
+          borderSkipped: false,
+          borderWidth: 1,
+          borderColor: "#fff"
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            enabled: true,
+            backgroundColor: "#1e3d59",
+            titleColor: "#fff",
+            bodyColor: "#fff"
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { color: "#333" },
+            grid: { color: "#eee" }
+          },
+          x: {
+            ticks: { color: "#333" },
+            grid: { display: false }
+          }
+        }
       }
-    }
-  });
+    });
+  }
 
-  // Gráfica: Tratamientos por Veterinaria
-  const ctxTratamientos = document.getElementById("tratamientosChart").getContext("2d");
-  const tratamientosChart = new Chart(ctxTratamientos, {
-    type: "pie",
-    data: {
-      labels: ["VetLife", "AnimalCare", "Patitas Salud"],
-      datasets: [{
-        label: "Tratamientos activos",
-        data: [15, 10, 5],
-        backgroundColor: ["#36b9cc", "#e74a3b", "#858796"]
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { position: "bottom" }
+  // === GRÁFICA DE TRATAMIENTOS POR FUNDACIÓN ===
+  const ctxTratamientos = document.getElementById("tratamientosChart")?.getContext("2d");
+  if (ctxTratamientos) {
+    new Chart(ctxTratamientos, {
+      type: "doughnut",
+      data: {
+        labels: ["Fundación Patitas", "Ayuda Animal", "VetCare"],
+        datasets: [{
+          label: "Tratamientos",
+          data: [22, 16, 10],
+          backgroundColor: ["#20c997", "#fd7e14", "#6610f2"],
+          hoverOffset: 10,
+          borderWidth: 3,
+          borderColor: "#fff"
+        }]
+      },
+      options: {
+        responsive: true,
+        cutout: '65%',
+        plugins: {
+          legend: {
+            position: "bottom",
+            labels: { color: "#1e3d59", font: { weight: "bold" } }
+          },
+          tooltip: {
+            backgroundColor: "#1e3d59",
+            bodyColor: "#fff"
+          }
+        }
       }
-    }
-  });
+    });
+  }
 });

@@ -8,12 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
         signUpBtn.addEventListener("click", () => container.classList.add("active"));
     }
 
-    // 🟢 REGISTRO
     const registrarForm = document.getElementById("registrarForm");
     if (registrarForm) {
         registrarForm.addEventListener("submit", function (event) {
             event.preventDefault();
-
             const formData = new FormData(this);
 
             fetch("http://localhost:8080/api/registro", {
@@ -38,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 🔐 LOGIN
     const loginForm = document.getElementById("loginForm");
     if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
@@ -61,20 +58,19 @@ document.addEventListener("DOMContentLoaded", function () {
                     alert("✅ " + data.message);
 
                     setTimeout(() => {
-                        // Redirección según rol
                         switch (parseInt(data.rol)) {
                             case 1:
-                                window.location.href = "/usuario/index"; // debe ser una ruta definida en tu controlador
+                                window.location.href = "/usuario/usuarios";
                                 break;
                             case 2:
-                                window.location.href = "/fundacion/index";
+                                window.location.href = "/fundacion/fundaciones";
                                 break;
                             case 3:
-                                window.location.href = "/veterinaria/index";
+                                window.location.href = "/veterinaria/veterinarias";
                                 break;
                             case 4:
                                 window.location.href = "/admin/Dashboard";
-                                break
+                                break;
                             default:
                                 window.location.href = "/";
                         }
@@ -87,6 +83,4 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
-
-    // 🔴 CERRAR SESIÓN (opcional: aún no está implementado)
 });
