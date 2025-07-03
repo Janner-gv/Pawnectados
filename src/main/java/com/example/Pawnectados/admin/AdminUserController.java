@@ -20,33 +20,37 @@ public class AdminUserController {
     @Autowired
     private UsuarioService usuarioService;
 
+    // ✅ Mostrar formulario de registro desde el dashboard
     @GetMapping("/registrar")
-    public String mostrarFormularioRegistro(HttpSession session) {
+    public String mostrarFormularioRegistro(HttpSession session, Model model) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         if (usuario == null || usuario.getRol() != 4) {
             return "redirect:/login";
         }
+        model.addAttribute("usuario", new Usuario());
         return "admin/CrearUsuario";
     }
 
+    // ✅ Registrar nuevo usuario desde formulario
     @PostMapping("/registrar")
     @ResponseBody
     public ResponseEntity<?> registrarUsuarioDesdeAdmin(@ModelAttribute Usuario usuario) {
         String mensaje = usuarioService.registrarUsuario(usuario);
         Map<String, Object> res = new HashMap<>();
-        res.put("status", mensaje.equals("Uusario registrado") ? "success" : "error");
+        res.put("status", mensaje.equals("Usuario registrado") ? "success" : "error");
         res.put("message", mensaje);
         return ResponseEntity.ok(res);
     }
 
+    // ✅ Mostrar todos los usuarios registrados
     @GetMapping("/usuarios")
     public String listarUsuarios(HttpSession session, Model model) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
-        if (usuario == null || usuario.getRol() !=4) {
+        if (usuario == null || usuario.getRol() != 4) {
             return "redirect:/login";
         }
         List<Usuario> usuarios = usuarioService.obtenerTodos();
         model.addAttribute("usuariosLista", usuarios);
-        return  "admin/Usuarios";
+        return "admin/Usuarios";
     }
 }

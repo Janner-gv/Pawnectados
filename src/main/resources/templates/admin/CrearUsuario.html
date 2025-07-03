@@ -16,7 +16,7 @@
 
 <div class="container active" id="container">
     <div class="form-container sign-up">
-        <form th:action="@{/admin/crear-usuario}" method="POST" th:object="${usuario}">
+        <form th:action="@{/admin/CrearUsuario}" method="POST" th:object="${usuario}">
             <h1>Crear nuevo usuario</h1>
             <span>Ingrese la información del nuevo usuario</span>
             <input type="text" th:field="*{nombre}" placeholder="Nombre completo o razón social" required>

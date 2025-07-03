@@ -1,4 +1,4 @@
-/* Reset básico */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,6 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* Fondo principal */
 body {
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   color: #fff;
@@ -16,9 +15,9 @@ body {
 /* Botón menú móvil */
 .menu-btn {
   position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 2001;
+  top: 15px;
+  left: 15px;
+  z-index: 1100;
   background: #1e3d59;
   color: white;
   border: none;
@@ -32,64 +31,81 @@ body {
 /* Sidebar */
 .sidebar {
   position: fixed;
-  left: 0;
   top: 0;
-  width: 250px;
-  height: 100%;
-  padding-top: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(16px);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
   z-index: 1000;
+  overflow-y: auto;
+  padding-top: 20px;
   transition: transform 0.3s ease-in-out;
 }
 
-.sidebar .logo {
+.sidebar-header {
   text-align: center;
-  font-size: 1.8em;
-  font-weight: bold;
-  padding: 20px;
-  color: #fff;
-
+  margin-bottom: 20px;
 }
 
-.sidebar .nav {
+.sidebar-header img.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.sidebar-header h2 {
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.sidebar nav ul {
   list-style: none;
   padding: 0;
-  margin-top: 20px;
+  margin: 0;
 }
 
-.sidebar .nav a {
+.sidebar nav ul li a {
   display: block;
   padding: 15px 30px;
   color: #ffffff;
   text-decoration: none;
   font-weight: 500;
-  transition: 0.3s;
-  border-left: 3px solid transparent;
+  border-left: 4px solid transparent;
+  transition: background 0.3s, border-left 0.3s;
 }
 
-.sidebar .nav a:hover {
+.sidebar nav ul li a:hover {
   background: rgba(255, 255, 255, 0.15);
-  border-left: 3px solid #1cc88a;
+  border-left: 4px solid #1cc88a;
 }
 
-/* Contenido principal */
-.main-content {
-  margin-left: 250px;
+.sidebar nav ul li a i {
+  margin-right: 10px;
+}
+
+/* Main content */
+.main-dashboard {
+  margin-left: 260px;
   padding: 40px 20px;
   transition: margin-left 0.3s ease-in-out;
 }
 
-/* Header */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 30px;
 }
 
-/* Tarjetas */
+header h1 {
+  font-size: 2rem;
+}
+
+header p {
+  font-size: 1rem;
+  color: #d1d1d1;
+}
+
+/* Cards */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -98,11 +114,10 @@ header {
 
 .card {
   padding: 20px;
-  border-radius: 16px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.1);
-  text-align: center;
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  color: white;
+  text-align: center;
 }
 
 .card img {
@@ -112,15 +127,16 @@ header {
 }
 
 .card h3 {
+  font-size: 1.1rem;
   margin-bottom: 5px;
-  font-size: 1.2rem;
 }
 
 .card p {
-  color: #ddd;
+  color: #d1d1d1;
+  font-size: 1rem;
 }
 
-/* Gráficas */
+/* Charts */
 .charts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -130,13 +146,17 @@ header {
 
 .chart-box {
   padding: 20px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
   text-align: center;
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
 
-/* Tabla */
+.chart-box h4 {
+  margin-bottom: 15px;
+}
+
+/* Tables */
 .tables {
   margin-top: 40px;
 }
@@ -152,21 +172,21 @@ header {
 table {
   width: 100%;
   border-collapse: collapse;
-  background: rgba(255, 255, 255, 0.1);
   color: white;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 th, td {
   padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 th {
   background: rgba(0, 0, 0, 0.3);
+  font-weight: bold;
 }
 
-/* Responsive */
+/* Mobile */
 @media screen and (max-width: 768px) {
   .sidebar {
     transform: translateX(-100%);
@@ -180,8 +200,23 @@ th {
     display: block;
   }
 
-  .main-content {
+  .main-dashboard {
     margin-left: 0;
     padding: 20px;
   }
+}
+
+.btn-registrar {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #1cc88a;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-registrar:hover {
+  background-color: #17a673;
 }
