@@ -38,10 +38,12 @@ public class AuthoController {
 
     @PostMapping("/registro")
     public ResponseEntity<?> registrar(@ModelAttribute Usuario usuario) {
+        // Forzar rol de usuario normal
+        usuario.setRol(1);  // 1 = Usuario común (persona natural)
+
         String mensaje = usuarioService.registrarUsuario(usuario);
         Map<String, Object> res = new HashMap<>();
         res.put("status", mensaje.equals("Usuario registrado") ? "success" : "error");
         res.put("message", mensaje);
         return ResponseEntity.ok(res);
-    }
-}
+    }}

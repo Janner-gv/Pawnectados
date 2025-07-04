@@ -12,12 +12,6 @@ public class AdminController {
         return usuario != null && usuario.getRol() == 4;
     }
 
-    @GetMapping("/admin/Dashboard")
-    public String dashboard(HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("usuario");
-        return esAdmin(usuario) ? "admin/Dashboard" : "redirect:/login";
-    }
-
     @GetMapping("/admin/usuario")
     public String verUsuarios(HttpSession session) {
         return esAdmin((Usuario) session.getAttribute("usuario")) ?

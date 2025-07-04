@@ -18,10 +18,15 @@ public class UsuarioService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    // Registrar un nuevo usuario
+    // Registrar un nuevo usuario (público o por admin)
     public String registrarUsuario(Usuario usuario) {
         if (usuarioRepository.existsByEmail(usuario.getEmail())) {
             return "El correo ya está registrado";
+        }
+
+        // Si no tiene un rol asignado (registro público), se asigna como Persona Natural
+        if (usuario.getRol() == 0) {
+            usuario.setRol(1); // 1 = Persona Natural
         }
 
         // Encriptar la contraseña antes de guardar
@@ -42,17 +47,50 @@ public class UsuarioService {
         return null;
     }
 
-    // Obtener todos los usuarios (para administrador)
+    // Obtener todos los usuarios (para el panel del administrador)
     public List<Usuario> obtenerTodos() {
         return usuarioRepository.findAll();
     }
 
-    // Eliminar usuario por ID (opcional para el admin)
+    // Obtener un usuario por ID
+    public Usuario obtenerPorId(Long id) {
+        return usuarioRepository.findById(id).orElse(null);
+    }
+
+    // Actualizar usuario (para el administrador)
+    public boolean actualizarUsuario(Long id, Usuario datosActualizados) {
+        Optional<Usuario> optional = usuarioRepository.findById(id);
+        if (optional.isPresent()) {
+            Usuario existente = optional.get();
+            existente.setNombre(datosActualizados.getNombre());
+            existente.setEmail(datosActualizados.getEmail());
+            existente.setTelefono(datosActualizados.getTelefono());
+            existente.setDireccion(datosActualizados.getDireccion());
+            existente.setRol(datosActualizados.getRol());
+
+            usuarioRepository.save(existente);
+            return true;
+        }
+        return false;
+    }
+
+    // Eliminar usuario por ID
     public boolean eliminarUsuario(Long id) {
         if (usuarioRepository.existsById(id)) {
             usuarioRepository.deleteById(id);
             return true;
         }
         return false;
+    }
+
+    public long contarUsuariosPorRol(int rol) {
+        return usuarioRepository.countByRol(rol);
+    }
+
+    @Autowired
+    private com.example.Pawnectados.repositorios.UsuarioRepository donacionRepository;
+
+    public long contarDonaciones() {
+        return donacionRepository.count();
     }
 }

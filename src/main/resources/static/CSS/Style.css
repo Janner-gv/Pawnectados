@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=montserrat:wght@300;400;500:600;700&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +16,6 @@ body {
     min-height: 100vh;
     padding: 20px;
 }
-
 #background-video {
     position: fixed;   /* Fija el video para que no se mueva */
     right: 0;
