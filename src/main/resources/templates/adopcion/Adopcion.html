@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.tymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -15,36 +15,76 @@
     <p>Un hogar para cada mascota</p>
 </header>
 
-<nav>
-    <a href="#">Inicio</a>
-    <a href="#">Acerca</a>
-    <a href="#">Mascotas</a>
-    <a href="#">Formulario</a>
-    <a href="#">Contacto</a>
+<nav class="text-center bg-dark p-2">
+    <a href="#" class="text-white px-3">Inicio</a>
+    <a href="#" class="text-white px-3">Acerca</a>
+    <a href="#" class="text-white px-3">Mascotas</a>
+    <a href="#formulario" class="text-white px-3">Formulario</a>
+    <a href="#" class="text-white px-3">Contacto</a>
 </nav>
 
-<section class="hero">
+<section class="hero text-white text-center py-5" style="background: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b') center/cover no-repeat;">
     <h2>Haz la diferencia</h2>
     <p>Adopta, no compres. Ayuda a cambiar una vida.</p>
 </section>
 
-<section class="section">
-    <h2>Nuestros Amigos Peludos</h2>
-    <div class="row row-cols-1 row-cols-md-3 g-4 gallery">
+<section class="section container py-5">
+    <h2 class="text-center mb-4">Nuestros Amigos Peludos</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
         <div class="col">
-            <img src="https://images.unsplash.com/photo-1518887499460-71d222eed89d" alt="Perro 1">
+            <div class="card h-100 shadow-sm">
+                <img src="https://images.unsplash.com/photo-1518887499460-71d222eed89d" class="card-img-top" alt="Luna">
+                <div class="card-body">
+                    <h5 class="card-title">Luna</h5>
+                    <p class="card-text">Dócil, juguetona y perfecta para familias con niños.</p>
+                    <ul class="list-unstyled small">
+                        <li>🐾 Edad: 2 años</li>
+                        <li>📏 Tamaño: Mediano</li>
+                        <li>🏠 Ideal para apartamento</li>
+                    </ul>
+                    <a href="#formulario" class="btn btn-primary">¡Adóptame!</a>
+                </div>
+            </div>
         </div>
+
         <div class="col">
-            <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55" alt="Perro 2">
+            <div class="card h-100 shadow-sm">
+                <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55" class="card-img-top" alt="Rocky">
+                <div class="card-body">
+                    <h5 class="card-title">Rocky</h5>
+                    <p class="card-text">Leal, protector y muy cariñoso. Busca una familia activa.</p>
+                    <ul class="list-unstyled small">
+                        <li>🐾 Edad: 3 años</li>
+                        <li>📏 Tamaño: Grande</li>
+                        <li>🏃‍♂️ Ideal para casa con patio</li>
+                    </ul>
+                    <a href="#formulario" class="btn btn-primary">¡Adóptame!</a>
+                </div>
+            </div>
         </div>
+
         <div class="col">
-            <img src="https://images.unsplash.com/photo-1601758177266-bc599de87707" alt="Perro 3">
+            <div class="card h-100 shadow-sm">
+                <img src="https://images.unsplash.com/photo-1601758177266-bc599de87707" class="card-img-top" alt="Mila">
+                <div class="card-body">
+                    <h5 class="card-title">Mila</h5>
+                    <p class="card-text">Tranquila, sociable y está esterilizada. Lista para un nuevo hogar.</p>
+                    <ul class="list-unstyled small">
+                        <li>🐾 Edad: 1 año</li>
+                        <li>📏 Tamaño: Pequeño</li>
+                        <li>👧 Amigable con niños</li>
+                    </ul>
+                    <a href="#formulario" class="btn btn-primary">¡Adóptame!</a>
+                </div>
+            </div>
         </div>
+
     </div>
 </section>
 
-<section class="section bg-light">
-    <h2>Formulario de Adopción</h2>
+<section id="formulario" class="section bg-light py-5">
+    <h2 class="text-center mb-4">Formulario de Adopción</h2>
     <form class="container" style="max-width: 600px;">
         <div class="mb-3">
             <label class="form-label">Nombre completo</label>
@@ -62,7 +102,7 @@
     </form>
 </section>
 
-<footer>
+<footer class="bg-dark text-white text-center py-3">
     <p>&copy; 2025 Huella - Todos los derechos reservados</p>
 </footer>
 
