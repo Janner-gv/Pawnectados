@@ -1,0 +1,52 @@
+@import url('base.css');
+.hero-blog {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem 1rem;
+    text-align: center;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 2rem auto;
+}
+
+.blog-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.entrada-blog {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+}
+
+.entrada-blog:hover {
+    transform: translateY(-6px);
+}
+
+.entrada-blog h2 {
+    color: #e91e63;
+    margin-bottom: 0.5rem;
+}
+
+.entrada-blog .fecha {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 0.75rem;
+}
+
+.entrada-blog p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.entrada-blog .btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
+}

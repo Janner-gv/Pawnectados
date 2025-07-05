@@ -1,0 +1,66 @@
+@import url('base.css');
+.fondo-adopta {
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../img/fondo2_adopta.jpg') center/cover fixed;
+    color: #fff;
+    text-align: center;
+    border-radius: 12px;
+    padding: 3rem 1rem;
+}
+
+.galeria-imagenes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.galeria-imagenes img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card .contenido {
+    padding: 1rem;
+    text-align: center;
+}
+
+.card .contenido h3 {
+    margin-bottom: 0.5rem;
+    color: #e91e63;
+}
+
+.card .contenido p {
+    color: #555;
+    font-size: 0.95rem;
+}

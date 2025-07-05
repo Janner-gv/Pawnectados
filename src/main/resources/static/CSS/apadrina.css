@@ -1,0 +1,51 @@
+@import url('base.css');
+.hero-apadrina {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 3rem 1rem;
+    border-radius: 12px;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.apadrina-opciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.apadrina-opciones article {
+    flex: 1 1 250px;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.apadrina-opciones article:hover {
+    transform: translateY(-5px);
+}
+
+.apadrina-opciones h3 {
+    color: #e91e63;
+    margin-bottom: 0.5rem;
+}
+
+.apadrina-opciones p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.cta-apadrina {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.cta-apadrina .btn {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
