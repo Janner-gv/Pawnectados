@@ -19,7 +19,7 @@ public class FundacionController {
     @GetMapping("/index")
     public String indexFundacion(HttpSession session) {
         return esFundacion((Usuario) session.getAttribute("usuario"))
-                ? "fundacion/index"          // templates/fundacion/index.html
+                ? "fundacion/fundaciones"          // templates/fundacion/index.html
                 : "redirect:/login";
     }
 
