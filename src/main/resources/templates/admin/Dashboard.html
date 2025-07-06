@@ -40,7 +40,7 @@
         <div class="card glass">
             <img src="/IMG/perro.png" alt="Usuarios">
             <h3>Usuarios</h3>
-            <p><span th:text="${totalusuario}">0</span></p>
+            <p><span th:text="${totalUsuarios}">0</span></p>
         </div>
         <div class="card glass">
             <img src="/IMG/fundacion.png" alt="Fundaciones">
@@ -51,6 +51,11 @@
             <img src="/IMG/veterinaria.png" alt="Veterinarias">
             <h3>Veterinarias</h3>
             <p><span th:text="${totalVeterinarias}">0</span></p>
+        </div>
+        <div class="card glass">
+            <img src="/IMG/animales.png" alt="Animales">
+            <h3>Animales</h3>
+            <p><span th:text="${totalanimales}">0</span></p>
         </div>
         <div class="card glass">
             <img src="/IMG/donacion.png" alt="Donaciones">
@@ -67,6 +72,10 @@
         <div class="chart-box glass">
             <h4>Tratamientos Aplicados</h4>
             <canvas id="tratamientosChart"></canvas>
+        </div>
+        <div class="chart-box glass">
+            <h4>Animales Registrados por Mes</h4>
+            <canvas id="animalesChart"></canvas>
         </div>
     </section>
 </main>

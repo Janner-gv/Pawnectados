@@ -1,6 +1,7 @@
 package com.example.Pawnectados.admin;
 
 import com.example.Pawnectados.models.Usuario;
+import com.example.Pawnectados.services.AnimalService;
 import com.example.Pawnectados.services.DonacionService;
 import com.example.Pawnectados.services.UsuarioService;
 import jakarta.servlet.http.HttpSession;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/admin")
@@ -19,13 +21,16 @@ public class AdminUserController {
     private UsuarioService usuarioService;
 
     @Autowired
-    private DonacionService donacionService; // ✅ Agregado
+    private DonacionService donacionService;
+
+    @Autowired
+    private AnimalService animalService;
 
     private boolean esAdmin(Usuario usuario) {
         return usuario != null && usuario.getRol() == 4;
     }
 
-    // ✅ Dashboard con estadísticas
+    // 🟢 DASHBOARD
     @GetMapping("/Dashboard")
     public String mostrarDashboard(HttpSession session, Model model) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
@@ -34,12 +39,22 @@ public class AdminUserController {
         model.addAttribute("totalUsuarios", usuarioService.contarUsuariosPorRol(1));
         model.addAttribute("totalFundaciones", usuarioService.contarUsuariosPorRol(2));
         model.addAttribute("totalVeterinarias", usuarioService.contarUsuariosPorRol(3));
-        model.addAttribute("totalDonaciones", donacionService.contarDonaciones()); // ✅ ya funciona
+        model.addAttribute("totalDonaciones", donacionService.contarDonaciones());
+        model.addAttribute("totalAnimales", animalService.contarAnimales());
 
         return "admin/Dashboard";
     }
 
-    // ✅ Listado general de usuarios
+    // 🟢 GRÁFICA: Animales registrados por mes
+    @GetMapping("/animales/por-mes")
+    @ResponseBody
+    public Map<String, Long> obtenerAnimalesPorMes(HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        if (!esAdmin(usuario)) return Map.of();
+        return animalService.obtenerAnimalesPorMes();
+    }
+
+    // 🟢 LISTADO DE USUARIOS
     @GetMapping("/usuarios")
     public String listarUsuarios(HttpSession session, Model model) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
@@ -50,16 +65,16 @@ public class AdminUserController {
         return "admin/Usuarios";
     }
 
-    // ✅ Editar usuario para asignar ROL
+    // 🟢 EDITAR USUARIO
     @GetMapping("/usuarios/{id}/editar")
     public String editarUsuario(@PathVariable Long id, HttpSession session, Model model) {
-        Usuario admin = (Usuario) session.getAttribute("usuario");
-        if (!esAdmin(admin)) return "redirect:/login";
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        if (!esAdmin(usuario)) return "redirect:/login";
 
-        Usuario usuario = usuarioService.obtenerPorId(id);
-        if (usuario == null) return "redirect:/admin/usuarios";
+        Usuario u = usuarioService.obtenerPorId(id);
+        if (u == null) return "redirect:/admin/usuarios";
 
-        model.addAttribute("usuario", usuario);
+        model.addAttribute("usuario", u);
         return "admin/EditarUsuario";
     }
 
@@ -72,7 +87,7 @@ public class AdminUserController {
         return "redirect:/admin/usuarios";
     }
 
-    // ✅ Eliminar usuario si es necesario
+    // 🟢 ELIMINAR USUARIO
     @PostMapping("/usuarios/{id}/eliminar")
     public String eliminarUsuario(@PathVariable Long id, HttpSession session) {
         Usuario admin = (Usuario) session.getAttribute("usuario");

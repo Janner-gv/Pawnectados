@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Usuarios - Admin</title>
+    <link rel="stylesheet" href="/CSS/GestionUsuarios.css">
+    <link rel="shortcut icon" href="/IMG/huella.icon" type="image/x-icon">
+</head>
+<body>
+
+<h1>👥 Gestión de Usuarios</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Dirección</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="usuario : ${usuariosLista}">
+        <td th:text="${usuario.id}"></td>
+        <td th:text="${usuario.nombre}"></td>
+        <td th:text="${usuario.email}"></td>
+        <td th:text="${usuario.telefono}"></td>
+        <td th:text="${usuario.direccion}"></td>
+        <td>
+                <span th:switch="${usuario.rol}">
+                    <span th:case="1">Persona Natural</span>
+                    <span th:case="2">Fundación</span>
+                    <span th:case="3">Veterinaria</span>
+                    <span th:case="4">Administrador</span>
+                    <span th:case="*">Sin Rol</span>
+                </span>
+        </td>
+        <td>
+            <a th:href="@{/admin/usuarios/{id}/editar(id=${usuario.id})}">Editar</a> |
+            <form th:action="@{/admin/usuarios/{id}/eliminar(id=${usuario.id})}" method="post" style="display:inline">
+                <button type="submit" onclick="return confirm('¿Deseas eliminar este usuario?')">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/admin/dashboard">🔙 Volver al Dashboard</a>
+
+</body>
+</html>
