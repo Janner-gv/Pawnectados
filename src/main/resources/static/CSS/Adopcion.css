@@ -1,80 +1,138 @@
-/* Estilos generales */
+/* ==== ESTILOS GENERALES ==== */
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
 }
+
+h1, h2 {
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* ==== ENCABEZADO ==== */
 
 header {
-  background-color: #f8aec4;
-  color: #fff;
-  padding: 2rem;
+  background-color: #4a90e2;
+  color: white;
+  padding: 2rem 1rem;
   text-align: center;
 }
 
+header h1 {
+  margin-bottom: 0.3rem;
+}
+
+/* ==== NAVEGACIÓN ==== */
+
 nav {
-  background-color: #502131;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  background-color: #333;
+  padding: 0.5rem 0;
 }
 
 nav a {
   color: white;
-  padding: 1rem;
-  display: inline-block;
-  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  background-color: #80384f;
+  color: #4a90e2;
 }
+
+/* ==== SECCIÓN HERO ==== */
 
 .hero {
-  background: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b') center/cover no-repeat;
+  background-color: #6c757d;
+  background-blend-mode: overlay;
   color: white;
+  padding: 4rem 2rem;
   text-align: center;
-  padding: 6rem 2rem;
+  animation: fadeIn 1s ease-in-out;
 }
 
-.section {
-  padding: 3rem 2rem;
+/* ==== TARJETAS DE MASCOTAS ==== */
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.section h2 {
-  text-align: center;
-  margin-bottom: 2rem;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-footer {
-  background-color: #502131;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-}
-
-/* Estilos para la galería (tarjetas de adopción) */
-.gallery img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 1rem;
-}
-
-/* Estilos para tarjetas Bootstrap personalizadas */
 .card-title {
-  color: #502131;
+  font-size: 1.25rem;
   font-weight: bold;
 }
 
-.card-text {
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
+/* ==== FORMULARIO ==== */
+
+form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease;
 }
 
-.btn-primary {
-  background-color: #f8aec4;
+form label {
+  font-weight: 600;
+}
+
+form input,
+form textarea {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+form button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.75rem;
+  font-weight: bold;
+  background-color: #4a90e2;
   border: none;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.btn-primary:hover {
-  background-color: #e68fa7;
+form button:hover {
+  background-color: #357ab8;
+}
+
+/* ==== PIE DE PÁGINA ==== */
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ==== ANIMACIONES ==== */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
