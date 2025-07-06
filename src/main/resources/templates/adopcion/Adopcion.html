@@ -43,7 +43,7 @@
                         <li>📏 Tamaño: Mediano</li>
                         <li>🏠 Ideal para apartamento</li>
                     </ul>
-                    <a href="#formulario" class="btn btn-primary">¡Adóptame!</a>
+                    <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Luna">¡Adóptame!</a>
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
                         <li>📏 Tamaño: Grande</li>
                         <li>🏃‍♂️ Ideal para casa con patio</li>
                     </ul>
-                    <a href="#formulario" class="btn btn-primary">¡Adóptame!</a>
+                    <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Rocky">¡Adóptame!</a>
                 </div>
             </div>
         </div>
@@ -69,13 +69,13 @@
                 <img src="https://images.unsplash.com/photo-1601758177266-bc599de87707" class="card-img-top" alt="Mila">
                 <div class="card-body">
                     <h5 class="card-title">Mila</h5>
-                    <p class="card-text">Tranquila, sociable y está esterilizada. Lista para un nuevo hogar.</p>
+                    <p class="card-text">Tranquila, sociable y esterilizada. Lista para un nuevo hogar.</p>
                     <ul class="list-unstyled small">
                         <li>🐾 Edad: 1 año</li>
                         <li>📏 Tamaño: Pequeño</li>
                         <li>👧 Amigable con niños</li>
                     </ul>
-                    <a href="#formulario" class="btn btn-primary">¡Adóptame!</a>
+                    <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Mila">¡Adóptame!</a>
                 </div>
             </div>
         </div>
@@ -85,19 +85,45 @@
 
 <section id="formulario" class="section bg-light py-5">
     <h2 class="text-center mb-4">Formulario de Adopción</h2>
-    <form class="container" style="max-width: 600px;">
+
+    <form class="container" style="max-width: 600px;" th:action="@{/procesar-adopcion}" method="post">
+        <input type="hidden" id="nombreAnimal" name="tipoMascota">
+
         <div class="mb-3">
             <label class="form-label">Nombre completo</label>
-            <input type="text" class="form-control" required>
+            <input type="text" class="form-control" name="nombre" required>
         </div>
+
         <div class="mb-3">
             <label class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" required>
+            <input type="email" class="form-control" name="correo" required>
         </div>
+
         <div class="mb-3">
-            <label class="form-label">¿Por qué quieres adoptar?</label>
-            <textarea class="form-control" rows="4" required></textarea>
+            <label class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" name="telefono" required>
         </div>
+
+        <div class="mb-3">
+            <label class="form-label">¿Qué tipo de animal deseas adoptar?</label>
+            <input type="text" class="form-control" name="tipoAnimal" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">¿Cuentas con los recursos necesarios?</label>
+            <input type="text" class="form-control" name="recursos" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">¿Tienes espacio y tiempo para una mascota?</label>
+            <input type="text" class="form-control" name="espacioTiempo" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">¿Qué tipo de mascota estás buscando?</label>
+            <input type="text" class="form-control" name="tipoMascota" required>
+        </div>
+
         <button type="submit" class="btn btn-primary">Enviar solicitud</button>
     </form>
 </section>
@@ -105,6 +131,18 @@
 <footer class="bg-dark text-white text-center py-3">
     <p>&copy; 2025 Huella - Todos los derechos reservados</p>
 </footer>
+
+<script>
+    const botones = document.querySelectorAll(".btn-adoptar");
+    const campoNombre = document.getElementById("nombreAnimal");
+
+    botones.forEach(boton => {
+      boton.addEventListener("click", () => {
+        const nombre = boton.getAttribute("data-nombre");
+        campoNombre.value = nombre;
+      });
+    });
+</script>
 
 </body>
 </html>
