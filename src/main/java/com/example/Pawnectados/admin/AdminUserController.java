@@ -1,6 +1,7 @@
 package com.example.Pawnectados.admin;
 
 import com.example.Pawnectados.models.Usuario;
+import com.example.Pawnectados.services.AnimalService;
 import com.example.Pawnectados.services.DonacionService;
 import com.example.Pawnectados.services.UsuarioService;
 import jakarta.servlet.http.HttpSession;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/admin")
@@ -20,6 +22,9 @@ public class AdminUserController {
 
     @Autowired
     private DonacionService donacionService;
+
+    @Autowired
+    private AnimalService animalService;
 
     private boolean esAdmin(Usuario usuario) {
         return usuario != null && usuario.getRol() == 4;
@@ -35,10 +40,19 @@ public class AdminUserController {
         model.addAttribute("totalFundaciones", usuarioService.contarUsuariosPorRol(2));
         model.addAttribute("totalVeterinarias", usuarioService.contarUsuariosPorRol(3));
         model.addAttribute("totalDonaciones", donacionService.contarDonaciones());
+        model.addAttribute("totalAnimales", animalService.contarAnimales());
 
         return "admin/Dashboard";
     }
 
+    // 🟢 GRÁFICA: Animales registrados por mes
+    @GetMapping("/animales/por-mes")
+    @ResponseBody
+    public Map<String, Long> obtenerAnimalesPorMes(HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        if (!esAdmin(usuario)) return Map.of();
+        return animalService.obtenerAnimalesPorMes();
+    }
 
     // 🟢 LISTADO DE USUARIOS
     @GetMapping("/usuarios")
