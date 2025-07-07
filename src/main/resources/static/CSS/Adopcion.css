@@ -136,3 +136,22 @@ footer {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+.card-img-top.cartel {
+  height: 480px;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background-color: white;
+  padding: 0 8px;       /* 🟨 Espaciado lateral leve (izq + der) */
+  margin-bottom: 10px;
+  border-radius: 0;
+}
+body {
+  background-image: url('/IMG/huella2.png');
+  background-repeat: repeat;
+  background-size: 100px 100px; /* ajusta el tamaño de la huella */
+  background-position: center;
+  background-attachment: fixed;
+  background-color: #fdfdfd; /* color base debajo de las huellitas */
+}
