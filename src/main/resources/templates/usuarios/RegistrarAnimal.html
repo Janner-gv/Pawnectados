@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Animal - Pawnectados</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/RegistrarAnimal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Didact+Gothic&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<section class="form-container">
+    <h1>📋 Registro de Animal Vulnerable</h1>
+    <form th:action="@{/animales/guardar}" method="post" enctype="multipart/form-data" th:object="${animal}">
+
+        <div class="input-group">
+            <label for="nombre">🐾 Nombre del Animal:</label>
+            <input type="text" id="nombre" th:field="*{nombre}" required placeholder="Ej. Rocky">
+        </div>
+
+        <div class="input-group">
+            <label for="especie">🐶 Especie:</label>
+            <select id="especie" th:field="*{especie}" required>
+                <option value="">Seleccione</option>
+                <option value="Perro">Perro</option>
+                <option value="Gato">Gato</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="raza">🏷️ Raza:</label>
+            <input type="text" id="raza" th:field="*{raza}" placeholder="Ej. Labrador">
+        </div>
+
+        <div class="input-group">
+            <label for="edad">📆 Edad (en años):</label>
+            <input type="number" id="edad" th:field="*{edad}" min="0">
+        </div>
+
+        <div class="input-group">
+            <label for="sexo">⚧️ Sexo:</label>
+            <select id="sexo" th:field="*{sexo}" required>
+                <option value="">Seleccione</option>
+                <option value="Macho">Macho</option>
+                <option value="Hembra">Hembra</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="motivo">💬 Motivo del Registro:</label>
+            <select id="motivo" th:field="*{motivo}" required>
+                <option value="">Seleccione</option>
+                <option value="Abandono">Animal abandonado</option>
+                <option value="Enfermedad">Animal enfermo o herido</option>
+                <option value="Falta de recursos">Familia sin recursos</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="deseaAdoptar">🏡 ¿Desea adoptarlo después del chequeo veterinario?</label>
+            <select id="deseaAdoptar" th:field="*{deseaAdoptar}" required>
+                <option value="">Seleccione</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="apadrinar">🧡 ¿Desea enviarlo a una fundación para apadrinarlo?</label>
+            <select id="apadrinar" th:field="*{apadrinar}" required>
+                <option value="">Seleccione</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="descripcion">📝 Descripción adicional:</label>
+            <textarea id="descripcion" th:field="*{descripcion}" rows="4" placeholder="Ej. Fue encontrado herido en un parque..."></textarea>
+        </div>
+
+        <div class="input-group">
+            <label for="file">📸 Foto del Animal:</label>
+            <input type="file" id="file" name="file" accept="image/*">
+        </div>
+
+        <div class="submit-container">
+            <button type="submit">Registrar Animal 🐕</button>
+        </div>
+    </form>
+</section>
+
+</body>
+</html>

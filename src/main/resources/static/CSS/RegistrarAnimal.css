@@ -1,0 +1,78 @@
+body {
+    font-family: 'Didact Gothic', sans-serif;
+    background: #fff8e1;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    color: #2d3436;
+    margin-bottom: 30px;
+}
+
+.form-container {
+    max-width: 750px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #2f3542;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: 0.2s border;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #ff7675;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.submit-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+button[type="submit"] {
+    background-color: #ff6b81;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #e55060;
+}
