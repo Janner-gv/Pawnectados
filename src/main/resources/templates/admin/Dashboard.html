@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>Dashboard Admin - Pawnectados</title>
     <link rel="stylesheet" href="/CSS/Dashboard.css">
     <link rel="shortcut icon" href="/IMG/huella.icon" type="image/x-icon">
@@ -20,8 +23,8 @@
     </div>
     <nav>
         <ul>
-            <li><a href="/admin/dashboard"><i class="fas fa-chart-line"></i> Inicio</a></li>
-            <li><a href="/admin/usuario"><i class="fas fa-users"></i> Usuarios</a></li>
+            <li><a href="/admin/Dashboard"><i class="fas fa-chart-line"></i> Inicio</a></li>
+            <li><a href="/admin/Usuarios"><i class="fas fa-users"></i> Usuarios</a></li>
             <li><a href="/admin/fundaciones"><i class="fas fa-dog"></i> Fundaciones</a></li>
             <li><a href="/admin/veterinarias"><i class="fas fa-clinic-medical"></i> Veterinarias</a></li>
             <li><a href="/admin/donaciones"><i class="fas fa-gift"></i> Donaciones</a></li>
@@ -41,26 +44,33 @@
             <img src="/IMG/perro.png" alt="Usuarios">
             <h3>Usuarios</h3>
             <p><span th:text="${totalUsuarios}">0</span></p>
+            <a href="/admin/Usuarios" class="btn-card">Gestionar</a>
         </div>
+
         <div class="card glass">
             <img src="/IMG/fundacion.png" alt="Fundaciones">
             <h3>Fundaciones</h3>
             <p><span th:text="${totalFundaciones}">0</span></p>
+            <a href="/admin/fundaciones" class="btn-card">Gestionar</a>
         </div>
+
         <div class="card glass">
             <img src="/IMG/veterinaria.png" alt="Veterinarias">
             <h3>Veterinarias</h3>
             <p><span th:text="${totalVeterinarias}">0</span></p>
+            <a href="/admin/veterinaria" class="btn-card">Gestionar</a>
         </div>
         <div class="card glass">
             <img src="/IMG/Animales.png" alt="Animales">
             <h3>Animales</h3>
             <p><span th:text="${totalanimales}">0</span></p>
+            <a href="/admin/Animales" class="btn-card">Gestionar</a>
         </div>
         <div class="card glass">
             <img src="/IMG/donacion.png" alt="Donaciones">
             <h3>Donaciones</h3>
             <p><span th:text="${totalDonaciones}">0</span></p>
+            <a href="/admin/Donaciones">Gestionar</a>
         </div>
     </section>
 

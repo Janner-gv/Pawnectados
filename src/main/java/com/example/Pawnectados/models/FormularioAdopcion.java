@@ -1,7 +1,6 @@
-package com.example.Pawnectados;
+package com.example.Pawnectados.models;
 
 public class FormularioAdopcion {
-
     private String nombre;
     private String correo;
     private String telefono;
@@ -11,7 +10,6 @@ public class FormularioAdopcion {
     private String tipoMascota;
 
     // Getters y Setters
-
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
 

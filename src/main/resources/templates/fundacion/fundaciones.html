@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundación TEPA</title>
     <link rel="stylesheet" href="/CSS/fundaciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="/IMG/huella.icon" type="image/x-icon">
 </head>
 
 <body>
@@ -17,7 +19,7 @@
         <ul>
             <li><a href="/fundacion/adopta">Adopta</a></li>
             <li><a href="/fundacion/apadrina">Apadrina&nbsp;y&nbsp;Dona</a></li>
-            <li><a href=/fundacion/apoyanos">Apóyanos</a></li>
+            <li><a href="/fundacion/apoyanos">Apóyanos</a></li>
             <li><a href="/fundacion/hogares">Hogares&nbsp;Tepa</a></li>
             <li><a href="/fundacion/blog">Blog</a></li>
             <li><a href="/fundacion/contactanos">Contáctanos</a></li>
@@ -54,11 +56,11 @@
     <h2>Haz parte del cambio</h2>
     <div class="columnas">
         <article>
-            <h3><a href="adopta.html">Adopta</a></h3>
+            <h3><a href="/fundacion/adopta.html">Adopta</a></h3>
             <p>Encuentra tu alma peluda.</p>
         </article>
         <article>
-            <h3><a href="apadrina.html">Apadrina</a></h3>
+            <h3><a href="/fundacion/apadrina.html">Apadrina</a></h3>
             <p>Patrocina su estadía.</p>
         </article>
         <article>
@@ -66,7 +68,7 @@
             <p>Alimentos, cobijas o recursos.</p>
         </article>
         <article>
-            <h3><a href="apoyanos.html">Difunde</a></h3>
+            <h3><a href="/fundacion/apoyanos.html">Difunde</a></h3>
             <p>Comparte y asiste a nuestras jornadas.</p>
         </article>
     </div>
@@ -74,12 +76,25 @@
 
 <!-- =======  FOOTER  ======= -->
 <footer>
-    <p>© 2025 Fundación TEPA</p>
-    <div class="redes">
-        <a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a>
+    <div class="footer-content">
+        <ul>
+            <li><a href="/usuarios/terminos" title="Términos"><i class="fas fa-file-contract"></i></a></li>
+            <li><a href="/usuarios/politica-privacidad" title="Privacidad"><i class="fas fa-user-shield"></i></a></li>
+            <li><a href="/usuarios/contacto" title="Contacto"><i class="fas fa-envelope"></i></a></li>
+            <li><a href="/usuarios/sobre-nosotros" title="Sobre Nosotros"><i class="fas fa-users"></i></a></li>
+        </ul>
+        <ul>
+            <li><a href="https://facebook.com/pawnectados" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com/pawnectados" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/pawnectados" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://youtube.com/pawnectados" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+            <li><a href="https://tiktok.com/@pawnectados" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a></li>
+        </ul>
     </div>
+    <p>Conectando corazones con patas desde 2024</p>
+    <p>Desarrollado por el equipo de Pawnectados</p>
+    <p>&copy; 2025 Pawnectados. Todos los derechos reservados.</p>
 </footer>
-
 </body>
 
 </html>

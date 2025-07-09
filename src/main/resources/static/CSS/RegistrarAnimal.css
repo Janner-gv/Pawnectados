@@ -1,6 +1,9 @@
 body {
+    background-image: url("/IMG/Poppy.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     font-family: 'Didact Gothic', sans-serif;
-    background: #fff8e1;
     margin: 0;
     padding: 0;
 }
@@ -15,10 +18,11 @@ h1 {
 .form-container {
     max-width: 750px;
     margin: 40px auto;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.8); /* Transparencia del fondo */
+    backdrop-filter: blur(5px); /* Difumina el fondo si el navegador lo permite */
     border-radius: 12px;
     padding: 30px 40px;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 }
 
 .input-group {
@@ -42,7 +46,7 @@ textarea {
     border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 15px;
-    transition: 0.2s border;
+    transition: border 0.2s;
 }
 
 input:focus,
@@ -62,7 +66,7 @@ textarea {
 }
 
 button[type="submit"] {
-    background-color: #ff6b81;
+    background-color: #077ac7;
     color: #fff;
     font-weight: bold;
     font-size: 16px;
@@ -74,5 +78,32 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #e55060;
+    background-color: #3da81d;
 }
+
+.mensaje-exito {
+    background-color: #d4edda;
+    color: #155724;
+    border: 2px solid #c3e6cb;
+    padding: 1em;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-family: 'Didact Gothic', sans-serif;
+    text-align: center;
+}
+
+.mensaje-exito .btn-volver {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 0.5em 1.2em;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.mensaje-exito .btn-volver:hover {
+    background-color: #218838;
+}
+

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/CSS/RegistrarAnimal.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Didact+Gothic&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/IMG/huella.icon" type="image/x-icon">
 </head>
 <body>
 
@@ -88,6 +89,10 @@
 
         <div class="submit-container">
             <button type="submit">Registrar Animal 🐕</button>
+        </div>
+        <div th:if="${mensajeExito}" class="mensaje-exito">
+            <p th:text="${mensajeExito}">Animal registrado correctamente</p>
+            <a href="/usuarios/usuarios" class="btn-volver">← Volver al inicio</a>
         </div>
     </form>
 </section>

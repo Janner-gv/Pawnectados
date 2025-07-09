@@ -118,17 +118,25 @@ header p {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .card img {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
   margin-bottom: 10px;
 }
 
 .card h3 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 5px;
+  color: #ffffff;
 }
 
 .card p {

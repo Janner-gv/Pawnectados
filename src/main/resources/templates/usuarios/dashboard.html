@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Dashboard - Usuario</title>
+    <link rel="stylesheet" href="/CSS/Dashboard.css">
+    <script src="/js/dashboard_usuario.js" defer></script>
+    <link rel="shortcut icon" href="/IMG/huella.icon" type="image/x-icon">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">🐾 Pawnectados</div>
+    <nav>
+        <ul>
+            <li><a href="/usuarios/index">Inicio</a></li>
+            <li><a href="/usuarios/registrar-animal">Registrar Animal</a></li>
+            <li><a href="/usuarios/mis-animales">Mis Animales</a></li>
+            <li><a href="/usuarios/adopcion">Adopción</a></li>
+            <li><a href="/usuarios/donaciones">Donaciones</a></li>
+            <a href="/logout" class="btn btn-logout">Cerrar sesión</a>
+        </ul>
+    </nav>
+</header>
+
+<main class="dashboard-container">
+    <section class="usuario-info">
+        <h2>👤 Mis Datos</h2>
+        <form th:action="@{/usuarios/actualizar}" method="post" th:object="${usuario}">
+            <input type="hidden" th:field="*{id}" />
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" th:field="*{nombre}" required>
+
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" th:field="*{correo}" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" th:field="*{telefono}" required>
+
+            <button type="submit">Actualizar Datos</button>
+        </form>
+    </section>
+
+    <section class="animal-crud">
+        <h2>🐶 Mis Animales Registrados</h2>
+        <a class="btn-agregar" href="/usuarios/registrar-animal">➕ Registrar Nuevo Animal</a>
+
+        <table class="tabla-animales">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Especie</th>
+                <th>Edad</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="animal : ${animales}">
+                <td th:text="${animal.nombre}"></td>
+                <td th:text="${animal.especie}"></td>
+                <td th:text="${animal.edad}"></td>
+                <td>
+                    <a class="btn-editar" th:href="@{/usuarios/animales/{id}/editar(id=${animal.id})}">✏️ Editar</a>
+                    <form th:action="@{/usuarios/animales/{id}/eliminar(id=${animal.id})}" method="post" style="display:inline">
+                        <button type="submit" class="btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar este registro?')">🗑️ Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+</body>
+</html>

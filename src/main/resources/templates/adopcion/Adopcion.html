@@ -1,249 +1,270 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Adopción de Mascotas</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/CSS/Adopcion.css">
-    <link rel="shortcut icon" href="/IMG/huella.icon" type="image/x-icon">
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Adopción de Mascotas</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="/CSS/Adopcion.css">
+        <link rel="shortcut icon" href="/IMG/huella.icon" type="image/x-icon">
 
-<header>
-    <h1>🐾 Adopta un amigo</h1>
-    <p>Un hogar para cada mascota</p>
-</header>
+    </head>
+    <body>
 
-<nav class="text-center bg-dark p-2">
-    <a href="#" class="text-white px-3">Inicio</a>
-    <a href="#" class="text-white px-3">Acerca</a>
-    <a href="#" class="text-white px-3">Mascotas</a>
-    <a href="#formulario" class="text-white px-3">Formulario</a>
-    <a href="#" class="text-white px-3">Contacto</a>
-</nav>
+    <header>
+        <h1>🐾 Adopta un amigo</h1>
+        <p>Un hogar para cada mascota</p>
+    </header>
 
-<section class="hero text-white text-center py-5" style="background: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b') center/cover no-repeat;">
-    <h2>Haz la diferencia</h2>
-    <p>Adopta, no compres. Ayuda a cambiar una vida.</p>
-</section>
+    <nav class="text-center bg-dark p-2">
+        <a href="#" class="text-white px-3">Inicio</a>
+        <a href="#" class="text-white px-3">Acerca</a>
+        <a href="#" class="text-white px-3">Mascotas</a>
+        <a href="#formulario" class="text-white px-3">Formulario</a>
+        <a href="#" class="text-white px-3">Contacto</a>
+    </nav>
 
-<section class="section container py-5">
-    <h2 class="text-center mb-4">Nuestros Amigos Peludos</h2>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="/IMG/mia.png" class="card-img-top cartel" alt="Mia Montaño">
+    <section class="hero text-white text-center py-5" style="background: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b') center/cover no-repeat;">
+        <h2>Haz la diferencia</h2>
+        <p>Adopta, no compres. Ayuda a cambiar una vida.</p>
+    </section>
 
-                <div class="card-body">
-                    <h5 class="card-title">Mia</h5>
-                    <p class="card-text">Perrita rescatada por el escruadrón anticrueldad, es amistosa, activa y gran compañero de aventuras.</p>
-                    <ul class="list-unstyled small">
-                        <li>🐾 Edad: 1 año</li>
-                        <li>📏 Tamaño: Mediano</li>
-                        <li>🚶‍♂️ Ideal para personas deportistas</li>
-                    </ul>
-                    <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Mia">¡Adóptame!</a>
+    <section class="section container py-5">
+        <h2 class="text-center mb-4">Nuestros Amigos Peludos</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="/IMG/mia.png" class="card-img-top cartel" alt="Mia Montaño">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Mia</h5>
+                        <p class="card-text">Perrita rescatada por el escruadrón anticrueldad, es amistosa, activa y gran compañero de aventuras.</p>
+                        <ul class="list-unstyled small">
+                            <li>🐾 Edad: 1 año</li>
+                            <li>📏 Tamaño: Mediano</li>
+                            <li>🚶‍♂️ Ideal para personas deportistas</li>
+                        </ul>
+                        <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Mia">¡Adóptame!</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 5 -->
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="/IMG/anabelgatica.png" class="card-img-top cartel" alt="Anabel">
-                <div class="card-body">
-                    <h5 class="card-title">Anabel</h5>
-                    <p class="card-text">Hermosa gatica rescatada por el escuadrón anticrueldad, es tranquila, amorosa y muy obediente. Ideal para adultos mayores.</p>
-                    <ul class="list-unstyled small">
-                        <li>🐾 Edad: 1 año</li>
-                        <li>📏 Tamaño: Pequeño</li>
-                        <li>🧘 Perfecta para un hogar calmado</li>
-                    </ul>
-                    <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Anabel">¡Adóptame!</a>
+            <!-- 5 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="/IMG/anabelgatica.png" class="card-img-top cartel" alt="Anabel">
+                    <div class="card-body">
+                        <h5 class="card-title">Anabel</h5>
+                        <p class="card-text">Hermosa gatica rescatada por el escuadrón anticrueldad, es tranquila, amorosa y muy obediente. Ideal para adultos mayores.</p>
+                        <ul class="list-unstyled small">
+                            <li>🐾 Edad: 1 año</li>
+                            <li>📏 Tamaño: Pequeño</li>
+                            <li>🧘 Perfecta para un hogar calmado</li>
+                        </ul>
+                        <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Anabel">¡Adóptame!</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 6 -->
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="/IMG/panderetaperrita.png" class="card-img-top cartel" alt="Pandereta">
-                <div class="card-body">
-                    <h5 class="card-title">Pandereta</h5>
-                    <p class="card-text">Linda perrita rescatada de una terraza, es juguetona, curiosa, valiente y ua excelente compañia .</p>
-                    <ul class="list-unstyled small">
-                        <li>🐾 Edad: 1 añoo</li>
-                        <li>📏 Tamaño: pequeño</li>
-                        <li>🏡 Ideal para apartamentos </li>
-                    </ul>
-                    <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Pandereta">¡Adóptame!</a>
+            <!-- 6 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="/IMG/panderetaperrita.png" class="card-img-top cartel" alt="Pandereta">
+                    <div class="card-body">
+                        <h5 class="card-title">Pandereta</h5>
+                        <p class="card-text">Linda perrita rescatada de una terraza, es juguetona, curiosa, valiente y ua excelente compañia .</p>
+                        <ul class="list-unstyled small">
+                            <li>🐾 Edad: 1 añoo</li>
+                            <li>📏 Tamaño: pequeño</li>
+                            <li>🏡 Ideal para apartamentos </li>
+                        </ul>
+                        <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Pandereta">¡Adóptame!</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 7 -->
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="/IMG/cheescakegato.png" class="card-img-top cartel" alt="Cheescake">
-                <div class="card-body">
-                    <h5 class="card-title">Cheescake</h5>
-                    <p class="card-text">Gatico blanco con beige, es extrovertido, energético y juguetón.</p>
-                    <ul class="list-unstyled small">
-                        <li>🐾 Edad: 3 años</li>
-                        <li>📏 Tamaño: Pequeño</li>
-                        <li>🎾 Le gusta jugar</li>
-                    </ul>
-                    <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Cheescake">¡Adóptame!</a>
+            <!-- 7 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="/IMG/cheescakegato.png" class="card-img-top cartel" alt="Cheescake">
+                    <div class="card-body">
+                        <h5 class="card-title">Cheescake</h5>
+                        <p class="card-text">Gatico blanco con beige, es extrovertido, energético y juguetón.</p>
+                        <ul class="list-unstyled small">
+                            <li>🐾 Edad: 3 años</li>
+                            <li>📏 Tamaño: Pequeño</li>
+                            <li>🎾 Le gusta jugar</li>
+                        </ul>
+                        <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Cheescake">¡Adóptame!</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 8 -->
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="/IMG/peiaperrita.png" class="card-img-top cartel" alt="Leia">
-                <div class="card-body">
-                    <h5 class="card-title">Leia</h5>
-                    <p class="card-text">Cariñosa, obediente y lista para recibir amor.</p>
-                    <ul class="list-unstyled small">
-                        <li>🐾 Edad: 7 años</li>
-                        <li>📏 Tamaño: Mediano</li>
-                        <li>👨‍👩‍👧 Muy tranquila, apta para cualquier tipo de familia</li>
-                    </ul>
-                    <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Leia">¡Adóptame!</a>
+            <!-- 8 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="/IMG/peiaperrita.png" class="card-img-top cartel" alt="Leia">
+                    <div class="card-body">
+                        <h5 class="card-title">Leia</h5>
+                        <p class="card-text">Cariñosa, obediente y lista para recibir amor.</p>
+                        <ul class="list-unstyled small">
+                            <li>🐾 Edad: 7 años</li>
+                            <li>📏 Tamaño: Mediano</li>
+                            <li>👨‍👩‍👧 Muy tranquila, apta para cualquier tipo de familia</li>
+                        </ul>
+                        <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Leia">¡Adóptame!</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 9 -->
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="/IMG/pirataperrita.png" class="card-img-top cartel" alt="Pirata">
-                <div class="card-body">
-                    <h5 class="card-title">Pirata</h5>
-                    <p class="card-text">Esterilizada, vacunada y lista para conocer su nueva familia.</p>
-                    <ul class="list-unstyled small">
-                        <li>🐾 Edad: 7 años</li>
-                        <li>📏 Tamaño: Mediano</li>
-                        <li>🩺 Salud perfecta y comportamiento equilibrado</li>
-                    </ul>
-                    <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Pirata">¡Adóptame!</a>
+            <!-- 9 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="/IMG/pirataperrita.png" class="card-img-top cartel" alt="Pirata">
+                    <div class="card-body">
+                        <h5 class="card-title">Pirata</h5>
+                        <p class="card-text">Esterilizada, vacunada y lista para conocer su nueva familia.</p>
+                        <ul class="list-unstyled small">
+                            <li>🐾 Edad: 7 años</li>
+                            <li>📏 Tamaño: Mediano</li>
+                            <li>🩺 Salud perfecta y comportamiento equilibrado</li>
+                        </ul>
+                        <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Pirata">¡Adóptame!</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="https://images.unsplash.com/photo-1518887499460-71d222eed89d" class="card-img-top" alt="Luna">
-                <div class="card-body">
-                    <h5 class="card-title">Luna</h5>
-                    <p class="card-text">Dócil, juguetona y perfecta para familias con niños.</p>
-                    <ul class="list-unstyled small">
-                        <li>🐾 Edad: 2 años</li>
-                        <li>📏 Tamaño: Mediano</li>
-                        <li>🏠 Ideal para apartamento</li>
-                    </ul>
-                    <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Luna">¡Adóptame!</a>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1518887499460-71d222eed89d" class="card-img-top" alt="Luna">
+                    <div class="card-body">
+                        <h5 class="card-title">Luna</h5>
+                        <p class="card-text">Dócil, juguetona y perfecta para familias con niños.</p>
+                        <ul class="list-unstyled small">
+                            <li>🐾 Edad: 2 años</li>
+                            <li>📏 Tamaño: Mediano</li>
+                            <li>🏠 Ideal para apartamento</li>
+                        </ul>
+                        <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Luna">¡Adóptame!</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55" class="card-img-top" alt="Rocky">
-                <div class="card-body">
-                    <h5 class="card-title">Rocky</h5>
-                    <p class="card-text">Leal, protector y muy cariñoso. Busca una familia activa.</p>
-                    <ul class="list-unstyled small">
-                        <li>🐾 Edad: 3 años</li>
-                        <li>📏 Tamaño: Grande</li>
-                        <li>🏃‍♂️ Ideal para casa con patio</li>
-                    </ul>
-                    <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Rocky">¡Adóptame!</a>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55" class="card-img-top" alt="Rocky">
+                    <div class="card-body">
+                        <h5 class="card-title">Rocky</h5>
+                        <p class="card-text">Leal, protector y muy cariñoso. Busca una familia activa.</p>
+                        <ul class="list-unstyled small">
+                            <li>🐾 Edad: 3 años</li>
+                            <li>📏 Tamaño: Grande</li>
+                            <li>🏃‍♂️ Ideal para casa con patio</li>
+                        </ul>
+                        <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Rocky">¡Adóptame!</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="https://images.unsplash.com/photo-1601758177266-bc599de87707" class="card-img-top" alt="Mila">
-                <div class="card-body">
-                    <h5 class="card-title">Mila</h5>
-                    <p class="card-text">Tranquila, sociable y esterilizada. Lista para un nuevo hogar.</p>
-                    <ul class="list-unstyled small">
-                        <li>🐾 Edad: 1 año</li>
-                        <li>📏 Tamaño: Pequeño</li>
-                        <li>👧 Amigable con niños</li>
-                    </ul>
-                    <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Mila">¡Adóptame!</a>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1601758177266-bc599de87707" class="card-img-top" alt="Mila">
+                    <div class="card-body">
+                        <h5 class="card-title">Mila</h5>
+                        <p class="card-text">Tranquila, sociable y esterilizada. Lista para un nuevo hogar.</p>
+                        <ul class="list-unstyled small">
+                            <li>🐾 Edad: 1 año</li>
+                            <li>📏 Tamaño: Pequeño</li>
+                            <li>👧 Amigable con niños</li>
+                        </ul>
+                        <a href="#formulario" class="btn btn-primary btn-adoptar" data-nombre="Mila">¡Adóptame!</a>
+                    </div>
                 </div>
             </div>
+
         </div>
+    </section>
 
-    </div>
-</section>
+    <section id="formulario" class="section bg-light py-5">
+        <h2 class="text-center mb-4">Formulario de Adopción</h2>
 
-<section id="formulario" class="section bg-light py-5">
-    <h2 class="text-center mb-4">Formulario de Adopción</h2>
+        <form class="container" style="max-width: 600px;" th:action="@{/procesar-adopcion}" method="post" th:object="${formularioAdopcion}">
+            <input type="hidden" id="nombreAnimal" name="tipoAnimal">
 
-    <form class="container" style="max-width: 600px;" th:action="@{/procesar-adopcion}" method="post">
-        <input type="hidden" id="nombreAnimal" name="tipoMascota">
+            <div class="mb-3">
+                <label class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" name="nombre" required>
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label">Nombre completo</label>
-            <input type="text" class="form-control" name="nombre" required>
+            <div class="mb-3">
+                <label class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" name="correo" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" name="telefono" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">¿Cual es el nombre del animal que deseas adoptar?</label>
+                <input type="text" class="form-control" name="tipoAnimal" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">¿Cuentas con los recursos necesarios?</label>
+                <input type="text" class="form-control" name="recursos" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">¿Tienes espacio y tiempo para una mascota?</label>
+                <input type="text" class="form-control" name="espacioTiempo" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">¿Qué tipo de mascota estás buscando?</label>
+                <input type="text" class="form-control" name="tipoMascota" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <ul>
+                <li><a href="/usuarios/terminos" title="Términos"><i class="fas fa-file-contract"></i></a></li>
+                <li><a href="/usuarios/politica-privacidad" title="Privacidad"><i class="fas fa-user-shield"></i></a></li>
+                <li><a href="/usuarios/contacto" title="Contacto"><i class="fas fa-envelope"></i></a></li>
+                <li><a href="/usuarios/sobre-nosotros" title="Sobre Nosotros"><i class="fas fa-users"></i></a></li>
+            </ul>
+            <ul>
+                <li><a href="https://facebook.com/pawnectados" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://instagram.com/pawnectados" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://twitter.com/pawnectados" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://youtube.com/pawnectados" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="https://tiktok.com/@pawnectados" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a></li>
+            </ul>
         </div>
+        <p>Conectando corazones con patas desde 2024</p>
+        <p>Desarrollado por el equipo de Pawnectados</p>
+        <p>&copy; 2025 Pawnectados. Todos los derechos reservados.</p>
+        <p>&copy; Creditos a Instituto Distrital de protección y Bienestar Animal</p>
+    </footer>
 
-        <div class="mb-3">
-            <label class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" name="correo" required>
-        </div>
 
-        <div class="mb-3">
-            <label class="form-label">Teléfono</label>
-            <input type="tel" class="form-control" name="telefono" required>
-        </div>
+    <script>
+        const botones = document.querySelectorAll(".btn-adoptar");
+        const campoNombre = document.getElementById("nombreAnimal");
 
-        <div class="mb-3">
-            <label class="form-label">¿Cual es el nombre del animal que deseas adoptar?</label>
-            <input type="text" class="form-control" name="tipoAnimal" required>
-        </div>
+        botones.forEach(boton => {
+          boton.addEventListener("click", () => {
+            const nombre = boton.getAttribute("data-nombre");
+            campoNombre.value = nombre;
+          });
+        });
+    </script>
 
-        <div class="mb-3">
-            <label class="form-label">¿Cuentas con los recursos necesarios?</label>
-            <input type="text" class="form-control" name="recursos" required>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">¿Tienes espacio y tiempo para una mascota?</label>
-            <input type="text" class="form-control" name="espacioTiempo" required>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">¿Qué tipo de mascota estás buscando?</label>
-            <input type="text" class="form-control" name="tipoMascota" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Enviar solicitud</button>
-    </form>
-</section>
-
-<footer class="bg-dark text-white text-center py-3">
-    <p>&copy; PAWNECTADOS 2025 - Todos los derechos reservados</p>
-</footer>
-
-<script>
-    const botones = document.querySelectorAll(".btn-adoptar");
-    const campoNombre = document.getElementById("nombreAnimal");
-
-    botones.forEach(boton => {
-      boton.addEventListener("click", () => {
-        const nombre = boton.getAttribute("data-nombre");
-        campoNombre.value = nombre;
-      });
-    });
-</script>
-
-</body>
-</html>
+    </body>
+    </html>

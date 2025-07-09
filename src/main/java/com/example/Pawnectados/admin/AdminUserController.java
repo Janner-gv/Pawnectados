@@ -45,27 +45,18 @@ public class AdminUserController {
         return "admin/Dashboard";
     }
 
-    // 🟢 GRÁFICA: Animales registrados por mes
-    @GetMapping("/animales/por-mes")
-    @ResponseBody
-    public Map<String, Long> obtenerAnimalesPorMes(HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("usuario");
-        if (!esAdmin(usuario)) return Map.of();
-        return animalService.obtenerAnimalesPorMes();
-    }
-
     // 🟢 LISTADO DE USUARIOS
-    @GetMapping("/usuarios")
+    @GetMapping("/Usuarios")
     public String listarUsuarios(HttpSession session, Model model) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         if (!esAdmin(usuario)) return "redirect:/login";
 
         List<Usuario> usuarios = usuarioService.obtenerTodos();
         model.addAttribute("usuariosLista", usuarios);
-        return "admin/Usuarios";
+        return "admin/GestionUsuarios";
     }
 
-    // 🟢 EDITAR USUARIO
+    // 🟢 FORMULARIO DE EDICIÓN
     @GetMapping("/usuarios/{id}/editar")
     public String editarUsuario(@PathVariable Long id, HttpSession session, Model model) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
@@ -75,16 +66,17 @@ public class AdminUserController {
         if (u == null) return "redirect:/admin/usuarios";
 
         model.addAttribute("usuario", u);
-        return "admin/EditarUsuario";
+        return "admin/EditarUsuarios";
     }
 
+    // 🟢 PROCESAR ACTUALIZACIÓN
     @PostMapping("/usuarios/{id}/actualizar")
     public String actualizarUsuario(@PathVariable Long id, @ModelAttribute Usuario usuarioActualizado, HttpSession session) {
         Usuario admin = (Usuario) session.getAttribute("usuario");
         if (!esAdmin(admin)) return "redirect:/login";
 
         usuarioService.actualizarUsuario(id, usuarioActualizado);
-        return "redirect:/admin/usuarios";
+        return "redirect:/admin/Usuarios";
     }
 
     // 🟢 ELIMINAR USUARIO
@@ -94,6 +86,15 @@ public class AdminUserController {
         if (!esAdmin(admin)) return "redirect:/login";
 
         usuarioService.eliminarUsuario(id);
-        return "redirect:/admin/usuarios";
+        return "redirect:/admin/Usuarios";
+    }
+
+    // 🟢 GRÁFICA (por si usas Chart.js)
+    @GetMapping("/animales/por-mes")
+    @ResponseBody
+    public Map<String, Long> obtenerAnimalesPorMes(HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        if (!esAdmin(usuario)) return Map.of();
+        return animalService.obtenerAnimalesPorMes();
     }
 }

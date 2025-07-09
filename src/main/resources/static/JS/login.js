@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     setTimeout(() => {
                         let destino = "/";
                         switch (parseInt(data.rol)) {
-                            case 1: destino = "/Usuarios/usuarios"; break;
-                            case 2: destino = "/Fundacion/fundaciones"; break;
+                            case 1: destino = "/usuarios/usuarios"; break;
+                            case 2: destino = "/fundacion/fundaciones"; break;
                             case 3: destino = "/Veterinaria/veterinarias"; break;
                             case 4: destino = "/admin/Dashboard"; break;
                         }

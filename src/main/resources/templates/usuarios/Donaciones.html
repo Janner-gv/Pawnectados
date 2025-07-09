@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Donaciones - Pawnectados</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/donaciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="/IMG/huella.icon" type="image/x-icon">
+</head>
+
+<body>
+<header class="navbar">
+    <div class="logo">🐾 Pawnectados
+        <img src="/IMG/logo.png" alt="logo Pawnectados" class="logo-img">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/usuarios/index">Inicio</a></li>
+            <li><a href="/usuarios/registrar-animal">Registrar Animal</a></li>
+            <li><a href="/usuarios/dashboard">Mi Perfil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="donacion-container">
+    <div class="donaciones-box">
+        <h1>💖 Donaciones</h1>
+        <p>Con tu ayuda podemos seguir rescatando, curando y cuidando a miles de animales vulnerables.</p>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('dinero')">Donar Dinero</button>
+            <button class="tab-btn" onclick="showTab('objetos')">Donar Objetos</button>
+        </div>
+    </div>
+
+
+    <div id="dinero" class="tab-content active">
+        <h2>Donación Económica</h2>
+        <form action="/donaciones/enviar-dinero" method="post">
+            <label for="monto">Monto a donar ($COP):</label>
+            <input type="number" name="monto" id="monto" required>
+
+            <label for="metodo">Método de pago:</label>
+            <select name="metodo" id="metodo">
+                <option value="Nequi">Nequi</option>
+                <option value="Daviplata">Daviplata</option>
+                <option value="Transferencia">Transferencia Bancaria</option>
+            </select>
+
+            <label for="destino">¿A quién deseas donar?</label>
+            <select name="destino" id="destino" required>
+                <option value="Fundacion">Fundación</option>
+                <option value="Veterinaria">Veterinaria</option>
+                <option value="Animal">Animal Apadrinado</option>
+            </select>
+
+            <label for="referencia">Nombre de Fundación / Veterinaria / Animal (opcional):</label>
+            <input type="text" name="referencia" id="referencia" placeholder="Ej: Fundación Huellas">
+
+            <button type="submit">Donar Ahora</button>
+        </form>
+    </div>
+
+    <div id="objetos" class="tab-content">
+        <h2>Donar Objetos</h2>
+        <form action="/donaciones/enviar-objeto" method="post">
+            <label for="tipo">Tipo de objeto:</label>
+            <input type="text" name="tipo" id="tipo" required placeholder="Ej: Cobijas, alimento, medicinas">
+
+            <label for="descripcion">Descripción:</label>
+            <textarea name="descripcion" id="descripcion" rows="4"></textarea>
+
+            <label for="destino_objeto">¿A quién deseas enviar esta ayuda?</label>
+            <select name="destino_objeto" id="destino_objeto" required>
+                <option value="Fundacion">Fundación</option>
+                <option value="Veterinaria">Veterinaria</option>
+                <option value="Animal">Animal Apadrinado</option>
+            </select>
+
+            <label for="referencia_objeto">Nombre de Fundación / Veterinaria / Animal (opcional):</label>
+            <input type="text" name="referencia_objeto" id="referencia_objeto" placeholder="Ej: Rocky">
+
+            <button type="submit">Enviar Donación</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <ul>
+            <li><a href="/usuarios/terminos" title="Términos"><i class="fas fa-file-contract"></i></a></li>
+            <li><a href="/usuarios/politica-privacidad" title="Privacidad"><i class="fas fa-user-shield"></i></a></li>
+            <li><a href="/usuarios/contacto" title="Contacto"><i class="fas fa-envelope"></i></a></li>
+            <li><a href="/usuarios/sobre-nosotros" title="Sobre Nosotros"><i class="fas fa-users"></i></a></li>
+        </ul>
+        <ul>
+            <li><a href="https://facebook.com/pawnectados" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com/pawnectados" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/pawnectados" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://youtube.com/pawnectados" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+            <li><a href="https://tiktok.com/@pawnectados" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a></li>
+        </ul>
+    </div>
+    <p>Conectando corazones con patas desde 2024</p>
+    <p>Desarrollado por el equipo de Pawnectados</p>
+    <p>&copy; 2025 Pawnectados. Todos los derechos reservados.</p>
+</footer>
+<script src="/JS/Donaciones.js"></script>
+</body>
+</html>
