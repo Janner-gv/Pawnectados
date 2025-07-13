@@ -8,13 +8,27 @@ document.addEventListener("DOMContentLoaded", function () {
         signUpBtn.addEventListener("click", () => container.classList.add("active"));
     }
 
-    // ✅ REGISTRO (el rol lo asigna el backend, no el usuario)
+    // ✅ REGISTRO
     const registrarForm = document.getElementById("registrarForm");
     if (registrarForm) {
         registrarForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
             const formData = new FormData(this);
+            const password = formData.get("password");
+            const telefono = formData.get("telefono");
+
+            const contraseñaValida = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password);
+            const telefonoValido = /^\d{10}$/.test(telefono);
+
+            if (!contraseñaValida) {
+                alert("La contraseña debe tener mínimo 8 caracteres, una mayúscula, una minúscula y un número.");
+                return;
+            }
+            if (!telefonoValido) {
+                alert("El número de teléfono debe tener exactamente 10 dígitos.");
+                return;
+            }
 
             fetch("http://localhost:8080/api/registro", {
                 method: "POST",
@@ -23,23 +37,19 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 const mensaje = document.getElementById("mensajeRegistro");
-                if (mensaje) {
-                    mensaje.textContent = data.message;
-                    mensaje.style.color = data.status === "success" ? "green" : "red";
-                }
+                mensaje.textContent = data.message;
+                mensaje.style.color = data.status === "success" ? "green" : "red";
 
                 if (data.status === "success") {
                     alert("✅ " + data.message);
-                    setTimeout(() => {
-                        container.classList.remove("active");
-                    }, 1500);
+                    setTimeout(() => container.classList.remove("active"), 1500);
                 } else {
                     alert("⚠️ " + data.message);
                 }
             })
             .catch(error => {
                 console.error("❌ Error en el registro:", error);
-                alert("Ocurrió un error inesperado en el registro.");
+                alert("Ocurrió un error inesperado.");
             });
         });
     }
@@ -51,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
 
             const formData = new FormData(this);
-
             fetch("http://localhost:8080/api/login", {
                 method: "POST",
                 body: formData,
@@ -60,10 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 const mensaje = document.getElementById("mensajeLogin");
-                if (mensaje) {
-                    mensaje.textContent = data.message;
-                    mensaje.style.color = data.status === "success" ? "green" : "red";
-                }
+                mensaje.textContent = data.message;
+                mensaje.style.color = data.status === "success" ? "green" : "red";
 
                 if (data.status === "success") {
                     alert("✅ " + data.message);
@@ -83,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch(error => {
                 console.error("❌ Error en el login:", error);
-                alert("Ocurrió un error inesperado en el inicio de sesión.");
+                alert("Ocurrió un error inesperado al iniciar sesión.");
             });
         });
     }

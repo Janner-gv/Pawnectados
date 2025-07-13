@@ -228,3 +228,62 @@ th {
 .btn-registrar:hover {
   background-color: #17a673;
 }
+/* Reporte (Excel Export Section) */
+.reporte {
+  margin-top: 40px;
+  padding: 25px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+.reporte h2 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.reporte-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reporte-form label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.reporte-form input,
+.reporte-form select {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1rem;
+}
+
+.reporte-form input::placeholder {
+  color: #ddd;
+}
+
+.reporte-form button {
+  padding: 10px;
+  background-color: #1cc88a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reporte-form button:hover {
+  background-color: #17a673;
+}

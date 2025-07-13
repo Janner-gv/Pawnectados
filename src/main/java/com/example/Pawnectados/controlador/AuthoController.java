@@ -28,22 +28,30 @@ public class AuthoController {
             session.setAttribute("usuario", usuario);
             res.put("status", "success");
             res.put("rol", usuario.getRol());
-            res.put("message", "Bienvenido" + usuario.getNombre());
-        }else {
+            res.put("message", "Bienvenido " + usuario.getNombre());
+        } else {
             res.put("status", "error");
-            res.put("message", "Credenciales invalidas");
+            res.put("message", "Credenciales inválidas");
         }
         return ResponseEntity.ok(res);
     }
 
     @PostMapping("/registro")
     public ResponseEntity<?> registrar(@ModelAttribute Usuario usuario) {
-        // Forzar rol de usuario normal
-        usuario.setRol(1);  // 1 = Usuario común (persona natural)
-
+        usuario.setRol(1); // por seguridad
         String mensaje = usuarioService.registrarUsuario(usuario);
         Map<String, Object> res = new HashMap<>();
         res.put("status", mensaje.equals("Usuario registrado") ? "success" : "error");
         res.put("message", mensaje);
         return ResponseEntity.ok(res);
-    }}
+    }
+
+    @GetMapping("/logout")
+    public ResponseEntity<?> logout(HttpSession session) {
+        session.invalidate();
+        Map<String, String> res = new HashMap<>();
+        res.put("status", "success");
+        res.put("message", "Sesión cerrada correctamente");
+        return ResponseEntity.ok(res);
+    }
+}
