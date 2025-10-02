@@ -1,10 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.tymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawnectados Veterinaria</title>
+    <link rel="stylesheet" href="/CSS/Veterinaria.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- 🔹 Hero -->
+<header class="hero">
+    <div class="hero-content">
+        <h1>🐾 Bienvenidos a Pawnectados Veterinaria</h1>
+        <p>Cuidando a tus mascotas con amor y profesionalismo</p>
+        <a href="#citas" class="btn">Agendar cita</a>
+    </div>
+</header>
 
+<!-- 🔹 Sobre nosotros -->
+<section class="about">
+    <h2>Sobre Nosotros</h2>
+    <p>Somos una clínica veterinaria dedicada al bienestar animal. Con más de 10 años de experiencia,
+        nuestro equipo está listo para cuidar de tu mascota en cada etapa de su vida.</p>
+</section>
+
+<!-- 🔹 Servicios -->
+<section class="services">
+    <h2>Servicios</h2>
+    <div class="cards">
+        <div class="card">🐕 Consulta General</div>
+        <div class="card">💉 Vacunación</div>
+        <div class="card">⚕️ Cirugías</div>
+        <div class="card">🦷 Odontología</div>
+        <div class="card">🛁 Peluquería y Baño</div>
+        <div class="card">🚨 Emergencias 24/7</div>
+    </div>
+</section>
+
+<!-- 🔹 Equipo -->
+<section class="team">
+    <h2>Nuestro Equipo</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="https://placekitten.com/200/200" alt="Veterinaria">
+            <h3>Dra. Ana López</h3>
+            <p>Especialista en Cirugía</p>
+        </div>
+        <div class="card">
+            <img src="https://placekitten.com/201/200" alt="Veterinario">
+            <h3>Dr. Juan Pérez</h3>
+            <p>Medicina General</p>
+        </div>
+        <div class="card">
+            <img src="https://placekitten.com/202/200" alt="Veterinaria">
+            <h3>Dra. Sofía Ramírez</h3>
+            <p>Odontología</p>
+        </div>
+    </div>
+</section>
+
+<!-- 🔹 Citas -->
+<section id="citas" class="appointments">
+    <h2>Agendar Cita</h2>
+    <form>
+        <input type="text" placeholder="Tu nombre" required>
+        <input type="email" placeholder="Tu correo" required>
+        <input type="text" placeholder="Nombre de tu mascota" required>
+        <input type="date" required>
+        <button type="submit">Reservar</button>
+    </form>
+</section>
+
+<!-- 🔹 Blog / Consejos -->
+<section class="blog">
+    <h2>Consejos y Blog</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Vacunas esenciales para tu cachorro</h3>
+            <p>Protege a tu mascota con el esquema de vacunación completo.</p>
+        </div>
+        <div class="card">
+            <h3>Alimentación saludable</h3>
+            <p>Descubre cómo elegir la mejor dieta para tu mascota.</p>
+        </div>
+        <div class="card">
+            <h3>Primeros auxilios</h3>
+            <p>Qué hacer en caso de emergencia antes de llegar a la clínica.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 🔹 Adopciones -->
+<section class="adopciones">
+    <h2>Adopta una Mascota</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="https://placekitten.com/200/210" alt="Gato en adopción">
+            <p>Gatito en busca de hogar 🐱</p>
+        </div>
+        <div class="card">
+            <img src="https://placedog.net/200/210" alt="Perro en adopción">
+            <p>Perrito amoroso listo para ti 🐶</p>
+        </div>
+    </div>
+</section>
+
+<!-- 🔹 Testimonios -->
+<section class="testimonios">
+    <h2>Testimonios</h2>
+    <blockquote>“Gracias a Pawnectados, mi perro Max recibió la mejor atención. ¡Muy recomendados!” – Laura G.</blockquote>
+    <blockquote>“El equipo es muy profesional y cariñoso con los animales. Estoy feliz.” – Carlos M.</blockquote>
+</section>
+
+<!-- 🔹 Contacto -->
+<section class="contact">
+    <h2>Contacto</h2>
+    <p>📍 Calle Falsa 123, Ciudad</p>
+    <p>📞 +57 300 123 4567</p>
+    <p>📧 contacto@pawnectados.com</p>
+    <iframe src="https://maps.google.com/maps?q=bogota&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</section>
+
+<!-- 🔹 Footer -->
+<footer>
+    <p>© 2025 Pawnectados Veterinaria | Síguenos en
+        <a href="#">Facebook</a> | <a href="#">Instagram</a>
+    </p>
+</footer>
 </body>
 </html>

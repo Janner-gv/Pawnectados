@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class AdopcionesController {
 
-    @GetMapping("/adopcion")
+    @GetMapping("/adopciones")
     public String mostrarVistaAdopcion() {
         return "adopcion/Adopcion"; // Ruta HTML
     }
@@ -23,6 +23,6 @@ public class AdopcionesController {
         System.out.println("Espacio/Tiempo: " + form.getEspacioTiempo());
         System.out.println("Tipo de mascota buscada: " + form.getTipoMascota());
 
-        return "redirect:/adopcion";
+        return "redirect:/adopciones";
     }
 }

@@ -1,57 +1,93 @@
 package com.example.Pawnectados.controlador;
 
 import com.example.Pawnectados.models.Usuario;
-import com.example.Pawnectados.services.UsuarioService;
-import jakarta.servlet.http.HttpSession;
+import com.example.Pawnectados.models.Rol;
+import com.example.Pawnectados.repositorios.UsuarioRepository;
+import com.example.Pawnectados.repositorios.RolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api")
 public class AuthoController {
 
     @Autowired
-    private UsuarioService usuarioService;
+    private UsuarioRepository usuarioRepo;
 
+    @Autowired
+    private RolRepository rolRepo;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+    // ================= LOGIN =================
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestParam String email,
-                                   @RequestParam String password,
-                                   HttpSession session) {
-        Usuario usuario = usuarioService.autenticar(email, password);
-        Map<String, Object> res = new HashMap<>();
+    public Map<String, Object> login(@RequestParam String email,
+                                     @RequestParam String password) {
 
-        if (usuario != null) {
-            session.setAttribute("usuario", usuario);
-            res.put("status", "success");
-            res.put("rol", usuario.getRol());
-            res.put("message", "Bienvenido " + usuario.getNombre());
+        Map<String, Object> response = new HashMap<>();
+        Optional<Usuario> usuarioOpt = usuarioRepo.findByEmail(email);
+
+        if (usuarioOpt.isPresent()) {
+            Usuario u = usuarioOpt.get();
+            if (passwordEncoder.matches(password, u.getPassword())) {
+                response.put("status", "success");
+                response.put("message", "¡Login exitoso!");
+                if (u.getRoles().stream().anyMatch(r -> r.getNombre().equals("ROLE_ADMIN")))
+                    response.put("rol", "ROLE_ADMIN");
+                else if (u.getRoles().stream().anyMatch(r -> r.getNombre().equals("ROLE_FUNDACION")))
+                    response.put("rol", "ROLE_FUNDACION");
+                else if (u.getRoles().stream().anyMatch(r -> r.getNombre().equals("ROLE_VETERINARIA")))
+                    response.put("rol", "ROLE_VETERINARIA");
+                else
+                    response.put("rol", "ROLE_USER");
+            } else {
+                response.put("status", "error");
+                response.put("message", "Contraseña incorrecta.");
+            }
         } else {
-            res.put("status", "error");
-            res.put("message", "Credenciales inválidas");
+            response.put("status", "error");
+            response.put("message", "Usuario no encontrado.");
         }
-        return ResponseEntity.ok(res);
+
+        return response;
     }
 
+    // ================= REGISTRO =================
     @PostMapping("/registro")
-    public ResponseEntity<?> registrar(@ModelAttribute Usuario usuario) {
-        usuario.setRol(1); // por seguridad
-        String mensaje = usuarioService.registrarUsuario(usuario);
-        Map<String, Object> res = new HashMap<>();
-        res.put("status", mensaje.equals("Usuario registrado") ? "success" : "error");
-        res.put("message", mensaje);
-        return ResponseEntity.ok(res);
-    }
+    public Map<String, Object> registrar(@RequestParam String nombre,
+                                         @RequestParam String email,
+                                         @RequestParam String password,
+                                         @RequestParam String telefono) {
+        Map<String, Object> response = new HashMap<>();
 
-    @GetMapping("/logout")
-    public ResponseEntity<?> logout(HttpSession session) {
-        session.invalidate();
-        Map<String, String> res = new HashMap<>();
-        res.put("status", "success");
-        res.put("message", "Sesión cerrada correctamente");
-        return ResponseEntity.ok(res);
+        if (usuarioRepo.existsByEmail(email)) {
+            response.put("status", "error");
+            response.put("message", "El correo ya está registrado.");
+            return response;
+        }
+
+        Usuario u = new Usuario();
+        u.setNombre(nombre);
+        u.setEmail(email);
+        u.setTelefono(telefono);
+        u.setPassword(passwordEncoder.encode(password));
+
+        // Asignar rol USER por defecto
+        Rol rolUser = rolRepo.findByNombre("ROLE_USER").orElseGet(() -> {
+            Rol nuevo = new Rol();
+            nuevo.setNombre("ROLE_USER");
+            return rolRepo.save(nuevo);
+        });
+        u.setRoles(Set.of(rolUser));
+
+        usuarioRepo.save(u);
+
+        response.put("status", "success");
+        response.put("message", "Usuario registrado correctamente.");
+        return response;
     }
 }

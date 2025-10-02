@@ -8,62 +8,58 @@ public class Veterinaria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
 
-    private String nombre;
+    private String licencia;
+    private String servicios;
+    private String horarios;
 
-    private String email;
-
-    private String telefono;
-
-    private String direccion;
-
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
+    // Relación con usuario
+    @OneToOne
+    @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 
     // === Constructores ===
     public Veterinaria() {}
 
+    public Veterinaria(Usuario usuario, String licencia, String servicios, String horarios) {
+        this.usuario = usuario;
+        this.licencia = licencia;
+        this.servicios = servicios;
+        this.horarios = horarios;
+    }
+
     // === Getters y Setters ===
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getLicencia() {
+        return licencia;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setLicencia(String licencia) {
+        this.licencia = licencia;
     }
 
-    public String getEmail() {
-        return email;
+    public String getServicios() {
+        return servicios;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setServicios(String servicios) {
+        this.servicios = servicios;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getHorarios() {
+        return horarios;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setHorarios(String horarios) {
+        this.horarios = horarios;
     }
 
     public Usuario getUsuario() {

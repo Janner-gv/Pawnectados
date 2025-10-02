@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://tymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +29,7 @@
             <li><a href="/admin/veterinarias"><i class="fas fa-clinic-medical"></i> Veterinarias</a></li>
             <li><a href="/admin/donaciones"><i class="fas fa-gift"></i> Donaciones</a></li>
             <li><a href="/admin/tratamientos"><i class="fas fa-syringe"></i> Tratamientos</a></li>
+            <li><a href="/admin/RedactarCorreos"><i class="fas fa-message"></i>Envias Masivos</a></li>
             <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
         </ul>
     </nav>
@@ -63,7 +64,7 @@
         <div class="card glass">
             <img src="/IMG/Animales.png" alt="Animales">
             <h3>Animales</h3>
-            <p><span th:text="${totalanimales}">0</span></p>
+            <p><span th:text="${totalAnimales}">0</span></p>
             <a href="/admin/Animales" class="btn-card">Gestionar</a>
         </div>
         <div class="card glass">

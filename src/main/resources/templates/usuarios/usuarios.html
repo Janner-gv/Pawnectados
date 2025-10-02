@@ -2,101 +2,257 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Bienvenido a Pawnectados - Usuario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carrusel de Videos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/CSS/usuarios.css">
-    <script src="/js/usuarios.js" defer></script>
     <link rel="shortcut icon" href="/IMG/huella.icon" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Didact+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-<!-- Header de navegación -->
-<header class="navbar">
+<header class="bg-dark py-2 px-3 text-white text-center">
     <div class="logo">🐾 Pawnectados
         <img src="/IMG/logo.png" alt="logo Pawnectados" class="logo-img">
     </div>
-    <nav>
-        <ul>
-            <li><a href="/usuarios/dashboard">🏠 Inicio</a></li>
-            <li><a href="/usuarios/RegistrarAnimal">➕ Registrar Animal</a></li>
-            <li><a href="/usuarios/fundaciones">🏥 Fundaciones</a></li>
-            <li><a href="/usuarios/veterinarias">🩺 Veterinarias</a></li>
-            <li><a href="/usuarios/adopcion">🐶 Formulario de Adopción</a></li>
-            <li><a href="/usuarios/donaciones">💰 Donar</a></li>
-            <li><a href="/usuarios/mis-animales">📋 Mis Animales</a></li>
-
-        </ul>
-    </nav>
+    <h1 class="fs-4"> 🐾Bienvenido a Pawnectados🐾</h1>
+    <h1 class="subtitulo">Conectando corazones con huellitas 🩵</h1>
+    <ul>
+        <li><a href="/Home.html" class="text-white">Inicio</a></li>
+        <li><a href="/usuarios/Donaciones.html" class="text-white">Donaciones</a></li>
+        <li><a href="/usuarios/Adopciones.html" class="text-white">Adopciones</a></li>
+        <li><a href="/usuarios/dahboard1.html" class="text-white">perfil</a></li>
+        <li><a href="/usuarios/Contacto.html" class="text-white">Contacto</a></li>
+        <li><a href="usuarios/RegistrarAnimal.html" class="text-white">Registrar Animal</a></li>
+        <li><a href="/usuarios/HistorialDonacion.html" class="text-white">Historial Doncaciones</a></li>
+    </ul>
 </header>
 
-<!-- Sección Hero -->
-<section class="hero">
-    <div class="hero-content">
-        <h1>Bienvenido a Pawnectados</h1>
-        <p>Una comunidad que conecta corazones con patas 🐕🐾</p>
-        <a href="/usuarios/RegistrarAnimal" class="btn-principal">Registrar un animal vulnerable</a>
+<!-- Carrusel de videos -->
+
+<div id="videoCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+        <!-- Video 1 -->
+        <div class="carousel-item active">
+            <video class="d-block w-100 video-full" autoplay muted loop>
+                <source src="/IMG/DOGS.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+            <div class="carousel-caption d-none d-md-block">
+                <h2 class="text-white">Los animales son más amigos</h2>
+                <p>Ayuda que no hay mejor que el amor en cuatro patas</p>
+                <button><a href="/usuarios/Donaciones.html">Dona ahora</a></button>
+            </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="carousel-item">
+            <video class="d-block w-100 video-full" autoplay muted loop>
+                <source src="/IMG/GATS.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+            <div class="carousel-caption d-none d-md-block">
+                <h2 class="text-white">Adopta, no compres</h2>
+                <p>Ayudar a los peludos puede hacer la diferencia en el hogar</p>
+                <button><a href="/adopcion/Adopcion.html">Adopta un amigo</a></button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Controles del carrusel -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+    </button>
+</div>
+<main>
+    <div class="libro">
+        <div class="pagina active">
+            <h2>Capítulo 1: El comienzo en las calles</h2>
+            <p>Rocky nació en un rincón olvidado de la ciudad. Desde cachorro aprendió lo duro que era sobrevivir en las calles: buscar comida entre basuras, dormir bajo la lluvia y esquivar los peligros de los autos.
+                Aun así, sus ojos siempre brillaban con esperanza. ✨</p>
+            <img src="/IMG/Capitulo 1.jpg" alt="capitulo 1">
+        </div>
+        <div class="pagina">
+            <h2>Capítulo 2: El encuentro inesperado</h2>
+            <p>Un día de tormenta, Rocky buscaba refugio bajo un viejo puente. Fue entonces cuando una joven voluntaria de una fundación lo encontró. Estaba empapado, temblando y con una patita herida.
+                Ella se acercó despacio, tendiéndole la mano. Rocky dudó… pero el calor de esa mano cambió su destino. 🤲 🐶</p>
+            <img src="/IMG/Capitulo 2.jpg" alt="capitulo 2">
+        </div>
+        <div class="pagina">
+            <h2>Capítulo 3: El primer paso a la esperanza</h2>
+            <p>La fundación lo recibió con los brazos abiertos. Lo llevaron al veterinario, donde lo limpiaron, curaron sus heridas y le dieron por primera vez un plato lleno de comida.
+                Rocky movía su cola sin parar, como agradeciendo cada caricia que recibía. ❤️</p>
+            <img src="/IMG/Capitulo 3.jpg" alt="">
+        </div>
+        <div class="pagina">
+            <h2>Capítulo 4: Nuevos amigos</h2>
+            <p>En la fundación, Rocky conoció a otros perritos y gatitos rescatados. Al principio, tenía miedo de acercarse, pero pronto descubrió que no estaba solo.
+                Entre juegos y ladridos, volvió a sentirse como un cachorro lleno de vida. 🐾🐾</p>
+            <img src="/IMG/Capitulo 4.png" alt="">
+        </div>
+        <div class="pagina">
+            <h2>Capítulo 5: El día de la adopción</h2>
+            <p>Pasaron semanas y Rocky ya estaba sano, fuerte y lleno de energía.
+                Entonces llegó el gran día: una familia vino a la fundación buscando un compañero peludo. Al ver a Rocky, corriendo con entusiasmo y mirándolos con esos ojos llenos de amor, supieron que él era el indicado. 🏡</p>
+            <img src="/IMG/capitulo 5.png" alt="">
+        </div>
+        <div class="pagina">
+            <h2>Capítulo 6: Un nuevo hogar</h2>
+            <p>La primera noche en su nueva casa fue mágica. Rocky tenía su propia camita, juguetes y comida abundante. Lo  más importante: tenía una familia que lo abrazaba y lo llamaba “mi niño peludo”.
+                Por primera vez, Rocky durmió profundamente, sin miedo, soñado con un futuro brillante. 🌙✨</p>
+            <img src="/IMG/Capitulo 6.png" alt="">
+        </div>
+        <div class="pagina">
+            <h2>Capítulo 7: El mensaje de Rocky</h2>
+            <p>Hoy, Rocky corre feliz en el parque, juega con niños y disfruta cada día como si fuera el mejor.
+                Su historia nos recuerda que adoptar es cambiar vidas, que un pequeño gesto de amor puede transformar un destino, y que cada animal abandonado merece una segunda oportunidad. 💚</p>
+            <img src="/IMG/Capitulo 7.png" alt="">
+        </div>
+    </div>
+    <div class="controles">
+        <button id="anterior">⟵ Anterior</button>
+        <button id="siguiente">Siguiente ⟶</button>
+    </div>
+</main>
+<section>
+    <h2>¿Quieres ayudar a más animales como Rocky?</h2>
+    <p>Visita nuestra sección de adopciones y encuentra a tu nuevo mejor amigo.</p>
+    <a href="/adopcion/Adopcion.html" class="btn btn-primary">Ver Adopciones</a>
+</section>
+<section>
+    <h2>Comparte la historia de Rocky</h2>
+    <p>Ayúdanos a correr la voz sobre la importancia de la adopción responsable.</p>
+    <button id="shareBtn" class="btn btn-secondary">Compartir en Redes Sociales</button>
+</section>
+<section>
+    <div>
+        <h2>Deja un comentario</h2>
+        <form id="commentForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="comment" class="form-label">Comentario:</label>
+                <textarea class="form-control" id="comment" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Enviar</button>
+        </form>
+        <div id="commentsSection" class="mt-4">
+            <h3>Comentarios:</h3>
+            <ul id="commentsList" class="list-group"></ul>
+        </div>
     </div>
 </section>
+<section>
+    <div id="animalCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" id="carouselContent"></div>
 
-<!-- Sección de información -->
-<section class="info-seccion">
-    <h2>¿Qué puedes hacer desde tu cuenta?</h2>
-    <div class="card-container">
-        <div class="card">
-            <h3>Registrar Animal</h3>
-            <p>Ayuda a animales vulnerables a encontrar atención médica y un hogar.</p>
-            <a href="/usuarios/RegistrarAnimal">Ir al formulario</a>
-        </div>
-        <div class="card">
-            <h3>Ver Fundaciones</h3>
-            <p>Consulta las fundaciones disponibles para apadrinar o enviar tu caso.</p>
-            <a href="/usuarios/fundaciones">Ver fundaciones</a>
-        </div>
-        <div class="card">
-            <h3>Veterinarias</h3>
-            <p>Conoce las veterinarias que colaboran en chequeos y tratamientos.</p>
-            <a href="/usuarios/veterinarias">Ver veterinarias</a>
-        </div>
-        <div class="card">
-            <h3>Formulario de Adopción</h3>
-            <p>¿Te enamoraste de un peludo? Completa tu solicitud de adopción.</p>
-            <a href="/usuarios/adopcion">Ir al formulario</a>
-        </div>
-        <div class="card">
-            <h3>Donaciones</h3>
-            <p>Contribuye con dinero u objetos. Toda ayuda suma.</p>
-            <a href="/usuarios/donaciones">Ir a donar</a>
-        </div>
-        <div class="card">
-            <h3>Mis Animales</h3>
-            <p>Gestiona los animales que registraste: editar, eliminar o ver detalles.</p>
-            <a href="/usuarios/mis-animales">Gestionar animales</a>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#animalCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#animalCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
     </div>
 </section>
+<div id="menuCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
 
-<!-- Footer -->
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+            <div class="d-flex justify-content-center gap-3">
+
+                <!-- Card Usuarios -->
+                <div class="card text-center" style="width: 14rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Historial de donaciones</h5>
+                        <p class="card-text">Ver todos los usuarios registrados.</p>
+                        <a href="/usuarios/HistorialDonacion.html" class="btn btn-primary">Entrar</a>
+                    </div>
+                </div>
+
+                <!-- Card Fundaciones -->
+                <div class="card text-center" style="width: 14rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Fundaciones</h5>
+                        <p class="card-text">Ver lista de fundaciones activas.</p>
+                        <a href="/fundacion/fundaciones.html" class="btn btn-success">Entrar</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+            <div class="d-flex justify-content-center gap-3">
+
+                <!-- Card Veterinarias -->
+                <div class="card text-center" style="width: 14rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Veterinarias</h5>
+                        <p class="card-text">Consulta las veterinarias registradas.</p>
+                        <a href="/veterinaria/veterinarias.html" class="btn btn-warning">Entrar</a>
+                    </div>
+                </div>
+
+                <!-- Card Animales -->
+                <div class="card text-center" style="width: 14rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Animales</h5>
+                        <p class="card-text">Ver animales registrados por usuarios.</p>
+                        <a href="/usuarios/misanimales" class="btn btn-info">Entrar</a>
+                    </div>
+                </div>
+                <div class="card text-center" style="width: 14rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Registarar Animales</h5>
+                        <p class="card-text">Registra un animal para que encuentre su hogar.</p>
+                        <a href="/usuarios/RegistrarAnimal" class="btn btn-info">Entrar</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Controles del carrusel -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#menuCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#menuCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
 <footer>
-    <div class="footer-content">
-        <ul>
-            <li><a href="/usuarios/terminos" title="Términos"><i class="fas fa-file-contract"></i></a></li>
-            <li><a href="/usuarios/politica-privacidad" title="Privacidad"><i class="fas fa-user-shield"></i></a></li>
-            <li><a href="/usuarios/contacto" title="Contacto"><i class="fas fa-envelope"></i></a></li>
-            <li><a href="/usuarios/sobre-nosotros" title="Sobre Nosotros"><i class="fas fa-users"></i></a></li>
-        </ul>
-        <ul>
-            <li><a href="https://facebook.com/pawnectados" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://instagram.com/pawnectados" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://twitter.com/pawnectados" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://youtube.com/pawnectados" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a></li>
-            <li><a href="https://tiktok.com/@pawnectados" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a></li>
-        </ul>
+    <div class="bg-dark text-white text-center py-3">
+        <p class="mb-0">© 2024 Mi Sitio de Adopción de Animales. Todos los derechos reservados.</p>
+        <p class="mb-0">Síguenos en
+            <a href="#" class="text-white">Facebook</a>,
+            <a href="#" class="text-white">Twitter</a>,
+            <a href="#" class="text-white">Instagram</a>
+
+        </p>
     </div>
-    <p>Conectando corazones con patas desde 2024</p>
-    <p>Desarrollado por el equipo de Pawnectados</p>
-    <p>&copy; 2025 Pawnectados. Todos los derechos reservados.</p>
 </footer>
+
+
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/usuarios.js"></script>
+
 </body>
 </html>

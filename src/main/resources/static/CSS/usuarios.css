@@ -1,236 +1,208 @@
-/* usuarios.css - Estilos principales para la vista de usuarios de Pawnectados */
-
-/* ======= FUENTES Y RESET ======= */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Didact+Gothic&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-
-body {
-  font-family: 'Didact Gothic', sans-serif;
-  background-image: url("/IMG/FondoU.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: #333;
-  line-height: 1.6;
+body{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1507149833265-60c372daea22?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    color: #f8f9fa;
 }
-
+header{
+    background-color: rgba(0, 0, 0, 0.85);
+    border-bottom: 3px solid #28a745;
+}
 .logo-img {
   width: 50px;
   height: auto;
   vertical-align: middle;
   border-radius: 20px;
 }
-
-/* ======= NAVBAR ======= */
-header.navbar {
-  background: linear-gradient(to right, #077ac7, #ff9472);
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+header h1{
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    color: #f8f9fa;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+.titulo-principal {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.2rem;
+    color: #ffc107; /* amarillo llamativo */
+    text-align: center;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
+    margin: 20px 0;
 }
 
-header .logo {
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.8rem;
+.titulo-principal span {
+    color: #28a745; /* verde */
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
+.subtitulo {
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    color: #f8f9fa;
+    margin-bottom: 15px;
 }
-
-nav a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s;
+header ul{
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
-
-nav a:hover {
-  color: #fff0da;
+header ul li a{
+    color: #497eb4;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
 }
-
-/* ======= HERO ======= */
-.hero {
-  background: url('/img/hero-pawnectados.jpg') no-repeat center/cover;
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
+header ul li a:hover{
+    color: #ffc107;
 }
-
-.hero h1 {
-  font-size: 3rem;
-  color: white;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+.video-full{
+    max-height: 80vh;
+    object-fit: cover;
 }
-
-.hero p {
-  font-size: 1.2rem;
-  color: white;
-  margin-top: 0.5rem;
+.carousel-item {
+    text-align: center;
+    background: #000;
+    overflow: hidden;
 }
-
-.btn-principal {
-  background-color: #077ac7;
-  color: white;
-  padding: 0.8rem 2rem;
-  border-radius: 12px;
-  text-decoration: none;
-  margin-top: 1rem;
-  display: inline-block;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.btn-principal:hover {
-  background-color: #3da81d;
-}
-
-/* ======= SECCIÓN INFO ======= */
-.info-seccion {
-  padding: 3rem 2rem;
-  text-align: center;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.info-seccion h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #000000;
-}
-
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-}
-
-.card {
-  background-color: white;
-  padding: 2rem 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-}
-
-.card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
-  color: #444;
-}
-
-.card p {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 1rem;
-}
-
-.card a {
-  text-decoration: none;
-  color: #077ac7;
-  font-weight: bold;
-  border: 1px solid #d87272;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: background 0.3s, color 0.3s;
-}
-
-.card a:hover {
-  background-color: #3da81d;
-  color: white;
-}
-
-/* ======= FOOTER ======= */
-/* ==== FOOTER ESTILOS ==== *//* ==== FOOTER ESTILOS MEJORADOS ==== */
-
-footer {
-  background: linear-gradient(to right, #077ac7, #ff9472);
-  color: white;
-  padding: 2rem 1rem;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-}
-
-.footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-footer ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.3rem;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  transition: background 0.3s, transform 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-}
-
-footer ul li a:hover {
-  background: #1cc88a;
-  transform: scale(1.1);
-}
-
-footer p {
-  margin: 0.3rem 0;
-  font-size: 0.9rem;
-  opacity: 0.9;
-}
-
-@media screen and (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
+.carousel-item.active {
+    display: flex;
     align-items: center;
-    gap: 1.5rem;
-  }
+    justify-content: center;
+}
+.carousel-item video {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: cover;
+    border: 5px solid #28a745;
+    border-radius: 10px;
+    background: #000;
+}
+.carousel-caption h2{
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+.carousel-caption button a{
+    background-color: #28a745;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.carousel-caption button:hover a{
+    background-color: #abd6ff;
+}
+.libro {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #212529;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 1000px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.libro h2 {
+    color: #28a745;
+    margin-bottom: 10px;
+}
+.libro img {
+    width: 250px;
+    height: -500px;
+    max-width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
 }
 
-
+.controles {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+.controles button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.controles button:hover {
+    background-color: #0056b3;
+}
+section{
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px 20px;
+    margin: 30px 0;
+    border-radius: 12px;
+    text-align: center;
+}
+section h2{
+    color: #ffc107;
+    margin-bottom: 15px;
+}
+section p{
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+.pagina {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+.pagina.active {
+    display: flex;
+}
+.pagina h2 {
+    color: #28a745;
+    margin-bottom: 10px;
+}
+.pagina img {
+    flex: 1;
+    max-width: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.pagina:nth-child(even) {
+    flex-direction: row-reverse;
+}
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 1rem;
-  }
+    .pagina {
+        flex-direction: column;
+    }
+    .pagina img {
+        max-width: 100%;
+    }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0);}
 }

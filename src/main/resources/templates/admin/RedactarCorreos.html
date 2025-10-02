@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Correos Masivos - Pawnectados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/RedactarCorreos.css">
+    <link rel="shortcut icon" href="/IMG/huella.icon" type="image/x-icon">
+</head>
+<body>
+
+<div class="form-container">
+    <!-- Logo del proyecto -->
+    <img src="/IMG/logo.png" alt="Pawnectados" class="logo">
+
+    <!-- Banner / ilustración -->
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Correo" class="illustration">
+
+    <h2>Enviar Correos Masivos</h2>
+
+    <!-- ⚠️ Importante: este form apunta al controlador -->
+    <form action="/admin/correos/enviar" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="subject">Asunto</label>
+            <input type="text" id="subject" name="asunto" placeholder="Asunto del correo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="recipients">Destinatarios</label>
+            <textarea id="recipients" name="recipients" placeholder="Separar correos con coma o línea nueva..."></textarea>
+        </div>
+
+
+        <div class="form-group">
+            <label for="attachment">Adjuntar archivo (opcional)</label>
+            <input type="file" id="attachment" name="attachment">
+        </div>
+
+        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Enviar</button>
+    </form>
+
+    <!-- Mensajes de estado -->
+    <div id="successMessage" class="success-message" style="display: none;">¡Correos enviados exitosamente!</div>
+    <div id="sendingMessage" class="sending-message" style="display: none;">Enviando correos...</div>
+</div>
+
+</body>
+</html>

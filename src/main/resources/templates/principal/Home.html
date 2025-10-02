@@ -1,0 +1,114 @@
+<!DOCTYPE html> <html lang="es">
+<head> <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawnectados - Home</title>
+    <link rel="stylesheet" href="CSS/home page.css">
+    <link rel="shortcut icon" href="IMG/huella.icon" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+</head>
+<body> <!-- Header -->
+<header class="hero">
+    <a href="/login" class="login-btn">Iniciar Sesión</a>
+    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1558788353-f76d92427f16');">
+        <div class="hero-overlay">
+
+        </div>
+        <div class="hero-content" data-aos="fade-up">
+            <h1>¡Hola Amigos!</h1>
+            <p>Conectando corazones con huellitas 🐾</p>
+            <a href="#adopciones" class="btn">Adopta Ahora</a>
+            <a href="#donaciones" class="btn btn-alt">Haz una Donación</a>
+        </div>
+    </div>
+</header> <!-- Servicios Destacados -->
+<section class="servicios" data-aos="fade-up">
+    <h2>Nuestros Servicios</h2>
+    <div class="cards" id="serviciosCards"> <!-- Ejemplo de tarjetas con imagen -->
+        <div class="card"> <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a" alt="Adopciones">
+            <h3>Adopciones</h3>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1583337130417-1c76f7f79cf0" alt="Donaciones">
+            <h3>Donaciones</h3>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1583337130417-1c76f7f79cf0" alt="Veterinarias">
+            <h3>Veterinarias</h3>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1601758123927-2187d57a1c51" alt="Fundaciones">
+            <h3>Fundaciones</h3>
+        </div>
+    </div>
+</section> <!-- Mapa interactivo -->
+<section class="mapa-section" data-aos="fade-up">
+    <h2>Encuentra Fundaciones y Veterinarias Cerca</h2>
+    <div id="mapa">
+
+    </div>
+</section> <!-- Eventos -->
+<section class="eventos" data-aos="fade-up">
+    <h2>Próximos Eventos</h2>
+    <div class="eventos-lista" id="eventosLista">
+        <div class="evento">🐾 Jornada de Adopción - 12 Oct>
+
+        </div>
+        <div class="evento">💉 Campaña de Vacunación - 20 Oct>
+
+        </div>
+        <div class="evento">🎓 Taller de Cuidado - 25 Oct>
+
+        </div>
+    </div>
+</section> <!-- Historias -->
+<section class="historias" data-aos="fade-up">
+    <h2>Historias que Inspiran</h2>
+    <div class="historias-grid" id="historiasGrid">
+        <div class="historia">
+            <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16" alt="Rocky">
+            <p>🐶 Rocky - Adoptado</p>
+        </div>
+        <div class="historia">
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a" alt="Luna">
+            <p>🐱 Luna - Adoptada</p>
+        </div>
+    </div>
+</section> <!-- Tips -->
+<section class="tips" data-aos="fade-up">
+    <h2>Consejos para tu Mascota</h2>
+    <div class="tips-list">
+        <div class="tip">🍲 Alimentación Balanceada>
+
+        </div>
+        <div class="tip">💉 Vacunas al día>
+        </div>
+        <div class="tip">🏃 Ejercicio diario>
+        </div>
+        <div class="tip">🛡️ Visitas veterinarias>
+        </div>
+    </div>
+</section> <!-- Newsletter -->
+<section class="newsletter" id="donaciones" data-aos="fade-up">
+    <h2>Recibe Novedades></h2>
+    <form id="newsletterForm">
+        <input type="email" placeholder="Tu correo electrónico" required>
+        <button type="submit">Suscribirme>
+
+        </button>
+    </form>
+</section> <!-- Footer -->
+<footer data-aos="fade-up">
+    <p>&copy; 2025 Pawnectados. Todos los derechos reservados.</p>
+    <div class="social">
+        <a href="#">🐦</a>
+        <a href="#">📘</a>
+        <a href="#">📸</a>
+    </div>
+</footer> <!-- Scripts -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="JS/Home.js"></script>
+<script> AOS.init(); </script>
+</body>
+</html>

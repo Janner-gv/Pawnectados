@@ -5,7 +5,6 @@ import com.example.Pawnectados.repositorios.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.util.*;
 
 @Service
@@ -17,9 +16,8 @@ public class AnimalService {
     public String guardarAnimal(Animal animal, MultipartFile file) {
         try {
             if (!file.isEmpty()) {
-                String nombreArchivo = file.getOriginalFilename();
-                animal.setImagen(nombreArchivo);
-                // Puedes guardar la imagen en disco si lo deseas
+                animal.setImagen(file.getOriginalFilename());
+                // guardar archivo si deseas
             }
             animalRepository.save(animal);
             return "Animal registrado con éxito";
@@ -40,22 +38,16 @@ public class AnimalService {
         return animalRepository.count();
     }
 
-    // ✅ Gráfica: Animales registrados por mes
     public Map<String, Long> obtenerAnimalesPorMes() {
         List<Object[]> resultados = animalRepository.contarAnimalesPorMes();
         Map<String, Long> datos = new LinkedHashMap<>();
-
-        String[] meses = {
-                "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-        };
-
+        String[] meses = { "Enero","Febrero","Marzo","Abril","Mayo","Junio",
+                "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre" };
         for (Object[] fila : resultados) {
             int numeroMes = ((Number) fila[0]).intValue() - 1;
             long cantidad = ((Number) fila[1]).longValue();
             datos.put(meses[numeroMes], cantidad);
         }
-
         return datos;
     }
 }

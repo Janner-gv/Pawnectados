@@ -19,6 +19,7 @@ public class AnimalController {
     @Autowired
     private AnimalService animalService;
 
+    // Mostrar formulario de registro de animal
     @GetMapping("/RegistrarAnimal")
     public String mostrarFormularioRegistro(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
@@ -29,6 +30,8 @@ public class AnimalController {
         model.addAttribute("animal", animal);
         return "usuarios/RegistrarAnimal";
     }
+
+    // Guardar un animal
     @PostMapping("/guardar")
     public String guardarAnimal(@ModelAttribute("animal") Animal animal,
                                 @RequestParam("file") MultipartFile file,
@@ -40,24 +43,26 @@ public class AnimalController {
         animal.setUsuario(usuario);
         String mensaje = animalService.guardarAnimal(animal, file);
 
-        // ✅ Mostrar mensaje y resetear formulario
-        model.addAttribute("mensajeExito", mensaje); // ← aquí se llama mensajeExito
+        model.addAttribute("mensajeExito", mensaje);
         model.addAttribute("animal", new Animal());
         return "usuarios/RegistrarAnimal";
     }
 
+    // Listar animales del usuario
     @GetMapping("/lista")
     public String listarAnimales(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         if (usuario == null) return "redirect:/login";
 
-        List<Animal> animales = animalService.obtenerPorUsuario(usuario.getId());
+        // ✅ Usamos Long para ID
+        List<Animal> animales = animalService.obtenerPorUsuario(usuario.getId_usuario());
         model.addAttribute("animales", animales);
         return "animales/ListaAnimales";
     }
 
+    // Eliminar animal por ID
     @PostMapping("/eliminar/{id}")
-    public String eliminarAnimal(@PathVariable Long id, HttpSession session) {
+    public String eliminarAnimal(@PathVariable Long id, HttpSession session) {  // Cambiado a Long
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         if (usuario == null) return "redirect:/login";
 

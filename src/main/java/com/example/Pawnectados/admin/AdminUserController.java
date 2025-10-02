@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/admin")
@@ -26,8 +25,11 @@ public class AdminUserController {
     @Autowired
     private AnimalService animalService;
 
+    // 🔹 Verifica si el usuario tiene rol ADMIN
     private boolean esAdmin(Usuario usuario) {
-        return usuario != null && usuario.getRol() == 4;
+        if (usuario == null || usuario.getRoles() == null) return false;
+        return usuario.getRoles().stream()
+                .anyMatch(r -> r.getNombre().equalsIgnoreCase("ROLE_ADMIN"));
     }
 
     // 🟢 DASHBOARD
@@ -36,11 +38,18 @@ public class AdminUserController {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         if (!esAdmin(usuario)) return "redirect:/login";
 
-        model.addAttribute("totalUsuarios", usuarioService.contarUsuariosPorRol(1));
-        model.addAttribute("totalFundaciones", usuarioService.contarUsuariosPorRol(2));
-        model.addAttribute("totalVeterinarias", usuarioService.contarUsuariosPorRol(3));
-        model.addAttribute("totalDonaciones", donacionService.contarDonaciones());
-        model.addAttribute("totalAnimales", animalService.contarAnimales());
+        // Todos los conteos como Long
+        Long totalUsuarios = usuarioService.contarUsuariosPorRol("ROLE_USER");
+        Long totalFundaciones = usuarioService.contarUsuariosPorRol("ROLE_FUNDACION");
+        Long totalVeterinarias = usuarioService.contarUsuariosPorRol("ROLE_VETERINARIA");
+        Long totalDonaciones = donacionService.contarDonaciones();
+        long totalAnimales = animalService.contarAnimales();
+
+        model.addAttribute("totalUsuarios", totalUsuarios);
+        model.addAttribute("totalFundaciones", totalFundaciones);
+        model.addAttribute("totalVeterinarias", totalVeterinarias);
+        model.addAttribute("totalDonaciones", totalDonaciones);
+        model.addAttribute("totalAnimales", totalAnimales);
 
         return "admin/Dashboard";
     }
@@ -63,7 +72,7 @@ public class AdminUserController {
         if (!esAdmin(usuario)) return "redirect:/login";
 
         Usuario u = usuarioService.obtenerPorId(id);
-        if (u == null) return "redirect:/admin/usuarios";
+        if (u == null) return "redirect:/admin/Usuarios";
 
         model.addAttribute("usuario", u);
         return "admin/EditarUsuarios";
@@ -87,14 +96,5 @@ public class AdminUserController {
 
         usuarioService.eliminarUsuario(id);
         return "redirect:/admin/Usuarios";
-    }
-
-    // 🟢 GRÁFICA (por si usas Chart.js)
-    @GetMapping("/animales/por-mes")
-    @ResponseBody
-    public Map<String, Long> obtenerAnimalesPorMes(HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("usuario");
-        if (!esAdmin(usuario)) return Map.of();
-        return animalService.obtenerAnimalesPorMes();
     }
 }

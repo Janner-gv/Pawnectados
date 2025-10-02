@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AdminController {
 
     private boolean esAdmin(Usuario usuario) {
-        return usuario != null && usuario.getRol() == 4;
+        return usuario != null &&
+                usuario.getRoles().stream()
+                        .anyMatch(r -> r.getNombre().equals("ROLE_ADMIN"));
     }
 
     @GetMapping("/admin/fundaciones")
@@ -27,12 +29,12 @@ public class AdminController {
     @GetMapping("/admin/trabajadores")
     public String verTrabajadores(HttpSession session) {
         return esAdmin((Usuario) session.getAttribute("usuario")) ?
-                "admin/Trabajadores" : "redirect:/login";
+                "admin/trabajadores" : "redirect:/login";
     }
 
     @GetMapping("/admin/donaciones")
     public String verDonaciones(HttpSession session) {
         return esAdmin((Usuario) session.getAttribute("usuario")) ?
-                "admin/Donaciones" : "redirect:/login";
+                "admin/donaciones" : "redirect:/login";
     }
 }

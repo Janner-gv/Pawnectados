@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.tymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -15,7 +15,8 @@
 </video>
 
 <div class="container" id="container">
-    <!-- Formulario de registro -->
+
+    <!-- REGISTRO -->
     <div class="form-container sign-up">
         <form id="registrarForm" method="POST">
             <h1>Crear cuenta</h1>
@@ -38,9 +39,9 @@
         </form>
     </div>
 
-    <!-- Formulario de login -->
+    <!-- LOGIN -->
     <div class="form-container sign-in">
-        <form id="loginForm" method="POST">
+        <form method="POST" action="/login">
             <h1>Iniciar sesión</h1>
             <div class="social-icons">
                 <a href="#" class="icon"><i class="fab fa-tiktok"></i></a>
@@ -49,15 +50,18 @@
                 <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
             </div>
             <span>O usa tu correo electrónico y contraseña</span>
-            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="email" name="username" placeholder="Correo electrónico" required>
             <input type="password" name="password" placeholder="Contraseña" required>
             <a href="#">¿Olvidaste tu contraseña?</a>
             <button type="submit">Iniciar sesión</button>
-            <p id="mensajeLogin"></p>
+            <p style="color:red;">
+                <span th:if="${param.error}">Correo o contraseña incorrectos</span>
+                <span th:if="${param.logout}">Has cerrado sesión correctamente</span>
+            </p>
         </form>
     </div>
 
-    <!-- Contenedor para cambiar entre formularios -->
+    <!-- Toggle -->
     <div class="toggle-container">
         <div class="toggle">
             <div class="toggle-panel toggle-left">
