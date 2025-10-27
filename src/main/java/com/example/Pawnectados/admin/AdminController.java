@@ -19,6 +19,11 @@ public class AdminController {
         return esAdmin((Usuario) session.getAttribute("usuario")) ?
                 "admin/fundaciones" : "redirect:/login";
     }
+    @GetMapping("/admin/RedactarCorreo")
+    public  String verRedactarCorreo(HttpSession session) {
+        return esAdmin((Usuario) session.getAttribute("usuario"))?
+                "admin/RedactarCorreo" : "redirect:/login";
+    }
 
     @GetMapping("/admin/veterinarias")
     public String verVeterinarias(HttpSession session) {

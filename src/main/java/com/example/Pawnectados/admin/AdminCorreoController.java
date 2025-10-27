@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/admin/correos")
+@RequestMapping("/admin/Redactar")
 public class AdminCorreoController {
 
     @Autowired
@@ -27,13 +27,14 @@ public class AdminCorreoController {
     }
 
     // 🟢 Formulario para redactar correos
-    @GetMapping("/redactar")
-    public String mostrarFormulario(HttpSession session) {
-        Usuario admin = (Usuario) session.getAttribute("usuario");
-        if (!esAdmin(admin)) return "redirect:/login";
 
-        return "admin/RedactarCorreo";
-    }
+        @GetMapping("/redactar")
+        public String mostrarFormulario(HttpSession session) {
+            Usuario admin = (Usuario) session.getAttribute("usuario");
+            if (!esAdmin(admin)) return "redirect:/login";
+
+            return "admin/RedactarCorreos"; // Este es el HTML que se abrirá
+        }
 
     // 🟢 Procesar envío de correos
     @PostMapping("/enviar")
@@ -46,16 +47,16 @@ public class AdminCorreoController {
         List<String> destinatarios = usuarioService.obtenerCorreosUsuarios();
 
         if (destinatarios.isEmpty()) {
-            return "redirect:/admin/correos/redactar?vacio";
+            return "redirect:/admin/Redactar/redactar?vacio";
         }
 
         try {
             correoMasivoService.enviarMasivo(destinatarios, asunto, mensaje);
         } catch (Exception e) {
             e.printStackTrace();
-            return "redirect:/admin/correos/redactar?error";
+            return "redirect:/admin/Redactar/redactar?error";
         }
 
-        return "redirect:/admin/correos/redactar?exito";
+        return "redirect:/admin/Redactar/redactar?exito";
     }
 }
