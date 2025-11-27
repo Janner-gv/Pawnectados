@@ -237,3 +237,19 @@ body {
     .toggle {
         display: none;}
 }
+/* Scroll exclusivo para registro */
+.form-scroll {
+    max-height: 400px; /* Ajusta según necesites */
+    overflow-y: auto;
+    padding-right: 10px; /* Evita que el scrollbar tape los campos */
+}
+
+/* Scroll personalizado opcional */
+.form-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.form-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}

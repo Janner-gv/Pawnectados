@@ -22,28 +22,48 @@
         <th>Acciones</th>
     </tr>
     </thead>
+
     <tbody>
     <tr th:each="usuario : ${usuariosLista}">
-        <td th:text="${usuario.id}"></td>
+
+        <!-- ID -->
+        <td th:text="${usuario.id_usuario}"></td>
+
+        <!-- Datos básicos -->
         <td th:text="${usuario.nombre}"></td>
         <td th:text="${usuario.email}"></td>
         <td th:text="${usuario.telefono}"></td>
         <td th:text="${usuario.direccion}"></td>
+
+        <!-- ROLES (Set<Rol>) -->
         <td>
-                <span th:switch="${usuario.rol}">
-                    <span th:case="1">Persona Natural</span>
-                    <span th:case="2">Fundación</span>
-                    <span th:case="3">Veterinaria</span>
-                    <span th:case="4">Administrador</span>
+            <span th:each="r : ${usuario.roles}">
+                <span th:switch="${r.nombre}">
+                    <span th:case="'ROLE_USER'">Persona Natural</span>
+                    <span th:case="'ROLE_JURIDICA'">Persona Jurídica</span>
+                    <span th:case="'ROLE_FUNDACION'">Fundación</span>
+                    <span th:case="'ROLE_VETERINARIA'">Veterinaria</span>
+                    <span th:case="'ROLE_ADMIN'">Administrador</span>
                     <span th:case="*">Sin Rol</span>
                 </span>
+                <br/> <!-- por si tiene más de 1 rol -->
+            </span>
         </td>
+
+        <!-- ACCIONES -->
         <td>
-            <a th:href="@{/admin/usuarios/{id}/editar(id=${usuario.id})}">Editar</a> |
-            <form th:action="@{/admin/usuarios/{id}/eliminar(id=${usuario.id})}" method="post" style="display:inline">
-                <button type="submit" onclick="return confirm('¿Deseas eliminar este usuario?')">Eliminar</button>
+            <a th:href="@{/admin/usuarios/{id}/editar(id=${usuario.id_usuario})}">
+                Editar
+            </a>
+            |
+            <form th:action="@{/admin/usuarios/{id}/eliminar(id=${usuario.id_usuario})}" method="post" style="display:inline">
+                <button type="submit"
+                        onclick="return confirm('¿Deseas eliminar este usuario?')">
+                    Eliminar
+                </button>
             </form>
         </td>
+
     </tr>
     </tbody>
 </table>

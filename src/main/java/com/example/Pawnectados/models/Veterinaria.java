@@ -8,65 +8,49 @@ public class Veterinaria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
+    private String nombreClinica;
+    private String direccion;
+    private String telefono;
     private String licencia;
     private String servicios;
     private String horarios;
 
-    // Relación con usuario
+    @Enumerated(EnumType.STRING)
+    private EstadoVerificacion estadoVerificacion = EstadoVerificacion.PENDIENTE;
+
     @OneToOne
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 
-    // === Constructores ===
     public Veterinaria() {}
 
-    public Veterinaria(Usuario usuario, String licencia, String servicios, String horarios) {
-        this.usuario = usuario;
-        this.licencia = licencia;
-        this.servicios = servicios;
-        this.horarios = horarios;
-    }
+    // Getters y Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    // === Getters y Setters ===
-    public long getId() {
-        return id;
-    }
+    public String getNombreClinica() { return nombreClinica; }
+    public void setNombreClinica(String nombreClinica) { this.nombreClinica = nombreClinica; }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public String getDireccion() { return direccion; }
+    public void setDireccion(String direccion) { this.direccion = direccion; }
 
-    public String getLicencia() {
-        return licencia;
-    }
+    public String getTelefono() { return telefono; }
+    public void setTelefono(String telefono) { this.telefono = telefono; }
 
-    public void setLicencia(String licencia) {
-        this.licencia = licencia;
-    }
+    public String getLicencia() { return licencia; }
+    public void setLicencia(String licencia) { this.licencia = licencia; }
 
-    public String getServicios() {
-        return servicios;
-    }
+    public String getServicios() { return servicios; }
+    public void setServicios(String servicios) { this.servicios = servicios; }
 
-    public void setServicios(String servicios) {
-        this.servicios = servicios;
-    }
+    public String getHorarios() { return horarios; }
+    public void setHorarios(String horarios) { this.horarios = horarios; }
 
-    public String getHorarios() {
-        return horarios;
-    }
+    public EstadoVerificacion getEstadoVerificacion() { return estadoVerificacion; }
+    public void setEstadoVerificacion(EstadoVerificacion estadoVerificacion) { this.estadoVerificacion = estadoVerificacion; }
 
-    public void setHorarios(String horarios) {
-        this.horarios = horarios;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 }

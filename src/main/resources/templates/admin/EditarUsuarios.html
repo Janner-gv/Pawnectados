@@ -16,7 +16,11 @@
 
 <div class="container active" id="container">
   <div class="form-container sign-up">
-    <form th:action="@{'/admin/usuarios/' + ${usuario.id} + '/actualizar'}" method="post" th:object="${usuario}">
+
+    <!-- CORREGIDO: id → id_usuario -->
+    <form th:action="@{'/admin/usuarios/' + ${usuario.id_usuario} + '/actualizar'}"
+          method="post" th:object="${usuario}">
+
       <h1>Editar Usuario</h1>
       <span>Modifica la información del usuario</span>
 
@@ -25,17 +29,27 @@
       <input type="text" th:field="*{telefono}" placeholder="Teléfono" required>
       <input type="text" th:field="*{direccion}" placeholder="Dirección" required>
 
-      <select th:field="*{rol}" required>
-        <option value="1" th:selected="${usuario.rol == 1}">Persona Natural</option>
-        <option value="2" th:selected="${usuario.rol == 2}">Fundación</option>
-        <option value="3" th:selected="${usuario.rol == 3}">Veterinaria</option>
-        <option value="4" th:selected="${usuario.rol == 4}">Administrador</option>
-        <option value="5" th:selected="${usuario.rol == 5}">Trabajador</option>
+      <!-- LISTA DE ROLES (multi-select) -->
+      <label for="roles">Roles del usuario:</label>
+      <select id="roles" th:field="*{roles}" multiple required>
+
+        <option th:each="r : ${rolesDisponibles}"
+                th:value="${r.id}"
+                th:text="${r.nombre}"
+                th:selected="${usuario.roles.contains(r)}">
+        </option>
+
       </select>
 
       <button type="submit">Guardar Cambios</button>
-      <a href="admin/Usuarios" style="margin-top: 10px; display: block; text-align: center; color: #333;">← Volver a la lista</a>
+
+      <a th:href="@{/admin/Usuarios}"
+         style="margin-top: 10px; display: block; text-align: center; color: #333;">
+        ← Volver a la lista
+      </a>
+
     </form>
+
   </div>
 </div>
 

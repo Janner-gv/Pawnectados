@@ -1,15 +1,16 @@
 package com.example.Pawnectados.models;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
-@Table(name = "usuario") // nombre de tabla en minúscula
+@Table(name = "usuario")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_usuario; // coincide con la columna en BD
+    private Long id_usuario;
 
     @Column(nullable = false)
     private String nombre;
@@ -23,6 +24,14 @@ public class Usuario {
     @Column(nullable = false)
     private String password;
 
+    // Recuperación de contraseña
+    @Column(name = "reset_token")
+    private String resetToken;
+
+    @Column(name = "token_expiration")
+    private LocalDateTime tokenExpiration;
+
+    // Roles
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "usuario_rol",
@@ -33,18 +42,31 @@ public class Usuario {
 
     public Usuario() {}
 
+    // Getters y Setters
     public Long getId_usuario() { return id_usuario; }
     public void setId_usuario(Long id_usuario) { this.id_usuario = id_usuario; }
+
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
+
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+
     public String getTelefono() { return telefono; }
     public void setTelefono(String telefono) { this.telefono = telefono; }
+
     public String getDireccion() { return direccion; }
     public void setDireccion(String direccion) { this.direccion = direccion; }
+
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+
     public Set<Rol> getRoles() { return roles; }
     public void setRoles(Set<Rol> roles) { this.roles = roles; }
+
+    public String getResetToken() { return resetToken; }
+    public void setResetToken(String resetToken) { this.resetToken = resetToken; }
+
+    public LocalDateTime getTokenExpiration() { return tokenExpiration; }
+    public void setTokenExpiration(LocalDateTime tokenExpiration) { this.tokenExpiration = tokenExpiration; }
 }

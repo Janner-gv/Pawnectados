@@ -4,111 +4,234 @@
     <title>Pawnectados - Home</title>
     <link rel="stylesheet" href="CSS/home page.css">
     <link rel="shortcut icon" href="IMG/huella.icon" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- AOS (animaciones) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
 </head>
-<body> <!-- Header -->
+<body>
+
+<a class="login-btn" href="/login">Iniciar sesión</a>
+
+<!-- HERO -->
 <header class="hero">
-    <a href="/login" class="login-btn">Iniciar Sesión</a>
-    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1558788353-f76d92427f16');">
-        <div class="hero-overlay">
+    <div class="media">
+        <video autoplay muted loop playsinline
+               poster="https://images.unsplash.com/photo-1507146426996-ef05306b995a">
+            <source src="/IMG/pawnectados-hero.mp4" type="video/mp4">
+        </video>
+    </div>
 
-        </div>
+    <div class="overlay"></div>
+
+    <div class="hero-inner container">
         <div class="hero-content" data-aos="fade-up">
-            <h1>¡Hola Amigos!</h1>
-            <p>Conectando corazones con huellitas 🐾</p>
-            <a href="#adopciones" class="btn">Adopta Ahora</a>
-            <a href="#donaciones" class="btn btn-alt">Haz una Donación</a>
+            <h1>Conectamos corazones con huellitas 🐾</h1>
+            <p class="lead">Pawnectados ayuda a fundaciones, veterinarias y personas a colaborar para salvar, tratar y encontrar hogares para animales vulnerables.</p>
+            <div class="hero-ctas">
+                <a class="btn" href="#adopciones">Adoptar</a>
+                <a class="btn secondary" href="#donaciones">Donar</a>
+                <a class="btn secondary" href="#como-funciona">Cómo funciona</a>
+            </div>
         </div>
     </div>
-</header> <!-- Servicios Destacados -->
-<section class="servicios" data-aos="fade-up">
-    <h2>Nuestros Servicios</h2>
-    <div class="cards" id="serviciosCards"> <!-- Ejemplo de tarjetas con imagen -->
-        <div class="card"> <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a" alt="Adopciones">
-            <h3>Adopciones</h3>
+</header>
+
+<main class="container">
+
+    <!-- INTRO / QUÉ ES -->
+    <section class="intro" id="que-es" data-aos="fade-up">
+        <div class="intro-grid">
+            <div class="intro-card">
+                <h2>¿Qué es Pawnectados?</h2>
+                <p class="lead">
+                    Pawnectados es una plataforma colaborativa que conecta personas con fundaciones y veterinarias...
+                </p>
+
+                <div class="values" style="margin-top:18px">
+                    <div class="value" data-aos="fade-right">
+                        <h4>Misión</h4>
+                        <p>Crear una red sostenible que permita rescatar y tratar animales en condiciones dignas.</p>
+                    </div>
+                    <div class="value" data-aos="fade-up">
+                        <h4>Visión</h4>
+                        <p>Ser la plataforma referente en Latinoamérica.</p>
+                    </div>
+                    <div class="value" data-aos="fade-left">
+                        <h4>Propósito</h4>
+                        <p>Reducir el sufrimiento animal y facilitar la colaboración.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <aside class="intro-card" data-aos="fade-left">
+                <h3>Por qué funciona</h3>
+                <p class="lead">Combinamos tecnología y transparencia.</p>
+
+                <div class="kpis" style="margin-top:14px">
+
+                    <div class="kpi">
+                        <strong id="kpi-adopt" th:text="${'+' + animalesAdoptados}">+500</strong>
+                        <small>Adopciones</small>
+                    </div>
+
+                    <div class="kpi">
+                        <strong id="kpi-fund" th:text="${'+' + numFundaciones}">+40</strong>
+                        <small>Fundaciones</small>
+                    </div>
+
+                    <div class="kpi">
+                        <strong id="kpi-users" th:text="${'+' + numUsuarios}">+2k</strong>
+                        <small>Usuarios</small>
+                    </div>
+
+                </div>
+            </aside>
         </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1583337130417-1c76f7f79cf0" alt="Donaciones">
-            <h3>Donaciones</h3>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section class="steps" id="como-funciona" data-aos="fade-up">
+        <h2 class="section-title">Cómo funciona</h2>
+        <p class="lead">En 4 pasos simples</p>
+
+        <div class="steps-grid">
+            <div class="step" data-aos="fade-up">
+                <div class="icon">1</div>
+                <h4>Registro</h4>
+                <p>Crea un perfil como usuario, fundación o veterinaria.</p>
+            </div>
+            <div class="step" data-aos="fade-up">
+                <div class="icon">2</div>
+                <h4>Publica o busca</h4>
+                <p>Publica animales o busca mascotas para adoptar.</p>
+            </div>
+            <div class="step" data-aos="fade-up">
+                <div class="icon">3</div>
+                <h4>Colabora</h4>
+                <p>Donaciones seguras.</p>
+            </div>
+            <div class="step" data-aos="fade-up">
+                <div class="icon">4</div>
+                <h4>Seguimiento</h4>
+                <p>Historial clínico y actualizaciones.</p>
+            </div>
         </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1583337130417-1c76f7f79cf0" alt="Veterinarias">
-            <h3>Veterinarias</h3>
+
+        <div class="stats" data-aos="fade-up">
+            <div class="stat">
+                <strong th:text="${'+' + animalesAdoptados}">+500</strong>
+                <small>Animales adoptados</small>
+            </div>
+            <div class="stat">
+                <strong th:text="${'+' + numFundaciones}">+40</strong>
+                <small>Fundaciones</small>
+            </div>
+            <div class="stat">
+                <strong th:text="${'+' + numUsuarios}">+2K</strong>
+                <small>Usuarios</small>
+            </div>
         </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1601758123927-2187d57a1c51" alt="Fundaciones">
-            <h3>Fundaciones</h3>
+    </section>
+
+    <!-- FUNDACIONES DESTACADAS -->
+    <section class="foundations" data-aos="fade-up">
+        <h2 class="section-title">Fundaciones destacadas</h2>
+        <p class="lead">Colaboramos con organizaciones confiables y verificadas.</p>
+
+        <div class="foundations-grid">
+
+            <div class="foundation"
+                 th:each="fund : ${fundacionesDestacadas}"
+                 data-aos="fade-up">
+
+                <div class="thumb"
+                     th:style="'background-image:url(' + fund.imagenUrl + ')'">
+                </div>
+
+                <div class="body">
+                    <h4 th:text="${fund.nombre}">Nombre fundación</h4>
+                    <small th:text="${fund.ciudad}">Ciudad</small>
+                </div>
+
+            </div>
+
         </div>
-    </div>
-</section> <!-- Mapa interactivo -->
-<section class="mapa-section" data-aos="fade-up">
-    <h2>Encuentra Fundaciones y Veterinarias Cerca</h2>
-    <div id="mapa">
+    </section>
+
+    <!-- HISTORIAS -->
+    <section class="stories" data-aos="fade-up">
+        <h2 class="section-title">Historias que inspiran</h2>
+
+        <div class="stories-grid">
+
+            <article class="story" th:each="h : ${historias}">
+                <img th:src="${h.imagen}" alt="historia"
+                     style="width:100%;height:160px;object-fit:cover;border-radius:8px">
+                <p style="padding:10px">
+                    <strong th:text="${h.nombre}">Rocky</strong>
+                    — <span th:text="${h.descripcion}">Historia.</span>
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- EVENTOS -->
+    <section class="events" data-aos="fade-up">
+        <h2 class="section-title">Eventos próximos</h2>
+
+        <div class="events-grid">
+            <div class="event-card" th:each="ev : ${eventos}">
+                <span th:text="${ev.titulo}">Evento</span> —
+                <span th:text="${ev.fecha}">Fecha</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- MAPA -->
+    <section class="mapa" data-aos="fade-up">
+        <h2 class="section-title">Centro de operaciones</h2>
+        <p class="lead">Busca fundaciones y veterinarias cercanas.</p>
+        <div id="mapa"></div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter" data-aos="fade-up">
+        <h2 class="section-title">Únete a la comunidad</h2>
+        <p class="lead">Recibe historias y eventos.</p>
+
+        <form id="newsletterForm" th:action="@{/newsletter}" method="post">
+            <input type="email" name="email" placeholder="Tu correo electrónico" required />
+            <button class="btn" type="submit">Suscribirme</button>
+        </form>
+
+    </section>
+
+</main>
+
+<footer>
+    <div class="container"
+         style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+
+        <div>&copy; 2025 Pawnectados</div>
+
+        <div class="social">
+            <a href="#" style="color:#fff;margin-right:8px">🐦</a>
+            <a href="#" style="color:#fff;margin-right:8px">📘</a>
+            <a href="#" style="color:#fff">📸</a>
+        </div>
 
     </div>
-</section> <!-- Eventos -->
-<section class="eventos" data-aos="fade-up">
-    <h2>Próximos Eventos</h2>
-    <div class="eventos-lista" id="eventosLista">
-        <div class="evento">🐾 Jornada de Adopción - 12 Oct>
+</footer>
 
-        </div>
-        <div class="evento">💉 Campaña de Vacunación - 20 Oct>
-
-        </div>
-        <div class="evento">🎓 Taller de Cuidado - 25 Oct>
-
-        </div>
-    </div>
-</section> <!-- Historias -->
-<section class="historias" data-aos="fade-up">
-    <h2>Historias que Inspiran</h2>
-    <div class="historias-grid" id="historiasGrid">
-        <div class="historia">
-            <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16" alt="Rocky">
-            <p>🐶 Rocky - Adoptado</p>
-        </div>
-        <div class="historia">
-            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a" alt="Luna">
-            <p>🐱 Luna - Adoptada</p>
-        </div>
-    </div>
-</section> <!-- Tips -->
-<section class="tips" data-aos="fade-up">
-    <h2>Consejos para tu Mascota</h2>
-    <div class="tips-list">
-        <div class="tip">🍲 Alimentación Balanceada>
-
-        </div>
-        <div class="tip">💉 Vacunas al día>
-        </div>
-        <div class="tip">🏃 Ejercicio diario>
-        </div>
-        <div class="tip">🛡️ Visitas veterinarias>
-        </div>
-    </div>
-</section> <!-- Newsletter -->
-<section class="newsletter" id="donaciones" data-aos="fade-up">
-    <h2>Recibe Novedades></h2>
-    <form id="newsletterForm">
-        <input type="email" placeholder="Tu correo electrónico" required>
-        <button type="submit">Suscribirme>
-
-        </button>
-    </form>
-</section> <!-- Footer -->
-<footer data-aos="fade-up">
-    <p>&copy; 2025 Pawnectados. Todos los derechos reservados.</p>
-    <div class="social">
-        <a href="#">🐦</a>
-        <a href="#">📘</a>
-        <a href="#">📸</a>
-    </div>
-</footer> <!-- Scripts -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="JS/Home.js"></script>
-<script> AOS.init(); </script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="/js/Home.js"></script>
+
 </body>
 </html>

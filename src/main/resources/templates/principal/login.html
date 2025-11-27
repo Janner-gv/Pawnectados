@@ -4,21 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Pawnectados</title>
-    <link rel="stylesheet" href="CSS/Style.css" />
+    <link rel="stylesheet" href="/CSS/Style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="shortcut icon" href="IMG/huella.icon" type="image/x-icon">
+    <link rel="shortcut icon" href="/IMG/huella.icon" type="image/x-icon">
 </head>
 <body>
 
 <video autoplay muted loop id="background-video">
-    <source src="IMG/Paw Patrol Latinoamérica _ Canción Oficial (Canción) _ Nick Jr..mp4" type="video/mp4">
+    <source src="/IMG/Paw Patrol Latinoamérica _ Canción Oficial (Canción) _ Nick Jr..mp4" type="video/mp4">
 </video>
 
 <div class="container" id="container">
 
     <!-- REGISTRO -->
     <div class="form-container sign-up">
-        <form id="registrarForm" method="POST">
+        <form id="registrarForm" method="POST" enctype="multipart/form-data">
             <h1>Crear cuenta</h1>
             <div class="social-icons">
                 <a href="#" class="icon"><i class="fab fa-tiktok"></i></a>
@@ -27,13 +27,52 @@
                 <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
             </div>
             <span>O usa tu correo electrónico para registrarte</span>
-            <input type="text" name="nombre" placeholder="Nombre" required>
-            <input type="email" name="email" placeholder="Correo Electrónico" required>
-            <input type="text" name="telefono" placeholder="Teléfono (10 dígitos)" pattern="^\d{10}$" required>
-            <input type="text" name="direccion" placeholder="Dirección" required>
-            <input type="password" name="password" placeholder="Contraseña" required
-                   pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
-                   title="Mínimo 8 caracteres, incluyendo una mayúscula, una minúscula y un número">
+
+            <!-- INICIO CONTENEDOR SCROLL -->
+            <div class="form-scroll">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="email" name="email" placeholder="Correo Electrónico" required>
+                <input type="text" name="telefono" placeholder="Teléfono (10 dígitos)" pattern="^\d{10}$" required>
+                <input type="text" name="direccion" placeholder="Dirección" required>
+                <input type="password" name="password" placeholder="Contraseña" required
+                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
+                       title="Mínimo 8 caracteres, incluyendo una mayúscula, una minúscula y un número">
+
+                <select name="tipoUsuario" id="tipoUsuario" required>
+                    <option value="">Seleccione tipo de Usuario</option>
+                    <option value="Natural">Persona Natural</option>
+                    <option value="Juridica">Persona Jurídica</option>
+                    <option value="FUNDACION">Fundación</option>
+                    <option value="VETERINARIA">Veterinaria</option>
+                </select>
+
+                <!-- Resto de campos condicionales -->
+                <div id="docsEmpresa" style="display: none; margin-top: 10px;">
+                    <label>Adjunte documento de verificación (PDF o IMG):</label>
+                    <input type="file" name="documento" accept=".pdf, .jpg, .jpeg">
+                </div>
+                <div id="camposJuridica" style="display:none; margin-top:10px;">
+                    <input type="text" name="razonSocial" placeholder="Razón Social">
+                    <input type="text" name="nitJuridica" placeholder="NIT">
+                    <input type="text" name="direccionJuridica" placeholder="Dirección">
+                    <input type="text" name="telefonoJuridica" placeholder="Teléfono">
+                </div>
+                <div id="camposFundacion" style="display:none; margin-top:10px;">
+                    <input type="text" name="mision" placeholder="Misión">
+                    <input type="text" name="nitFundacion" placeholder="NIT">
+                    <input type="text" name="paginaWeb" placeholder="Página web">
+                </div>
+                <div id="camposVeterinaria" style="display:none; margin-top:10px;">
+                    <input type="text" name="nombreClinica" placeholder="Nombre de la clínica" required>
+                    <input type="text" name="licencia" placeholder="Licencia">
+                    <input type="text" name="servicios" placeholder="Servicios">
+                    <input type="text" name="horarios" placeholder="Horarios">
+                    <input type="text" name="direccionVeterinaria" placeholder="Dirección" required>
+                    <input type="text" name="telefonoVeterinaria" placeholder="Teléfono" required>
+                </div>
+            </div>
+            <!-- FIN CONTENEDOR SCROLL -->
+
             <button type="submit">Registrarse</button>
             <p id="mensajeRegistro"></p>
         </form>
@@ -41,7 +80,7 @@
 
     <!-- LOGIN -->
     <div class="form-container sign-in">
-        <form method="POST" action="/login">
+        <form id="loginForm" method="POST">
             <h1>Iniciar sesión</h1>
             <div class="social-icons">
                 <a href="#" class="icon"><i class="fab fa-tiktok"></i></a>
@@ -50,14 +89,11 @@
                 <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
             </div>
             <span>O usa tu correo electrónico y contraseña</span>
-            <input type="email" name="username" placeholder="Correo electrónico" required>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
             <input type="password" name="password" placeholder="Contraseña" required>
-            <a href="#">¿Olvidaste tu contraseña?</a>
+            <a href="/principal/recuperar">¿Olvidaste tu contraseña?</a>
             <button type="submit">Iniciar sesión</button>
-            <p style="color:red;">
-                <span th:if="${param.error}">Correo o contraseña incorrectos</span>
-                <span th:if="${param.logout}">Has cerrado sesión correctamente</span>
-            </p>
+            <p id="mensajeLogin" style="color:red;"></p>
         </form>
     </div>
 
@@ -78,6 +114,6 @@
     </div>
 </div>
 
-<script src="JS/login.js"></script>
+<script src="/JS/login.js"></script>
 </body>
 </html>

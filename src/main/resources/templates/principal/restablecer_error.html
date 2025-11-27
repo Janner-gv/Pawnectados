@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Error - Pawnectados</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #ffe2e2;
+        }
+
+        .box-error {
+            width: 450px;
+            background: white;
+            margin: 6% auto;
+            padding: 35px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .box-error h2 {
+            color: #d60000;
+        }
+
+        .box-error p {
+            color: #5a5a5a;
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: inline-block;
+            background: #ff914d;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        a:hover {
+            background: #ff7a22;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box-error">
+    <h2>⚠ Error con el enlace</h2>
+    <p th:text="${error}">El enlace no es válido o ha expirado.</p>
+
+    <a href="/recuperar">Volver a intentar</a>
+</div>
+
+</body>
+</html>

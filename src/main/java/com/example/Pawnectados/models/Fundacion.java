@@ -1,6 +1,7 @@
 package com.example.Pawnectados.models;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "fundacion")
@@ -8,65 +9,55 @@ public class Fundacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    private String mision;
+    private String nombre;
     private String nit;
+    private String direccion;
+    private String telefono;
+    private String mision;
     private String paginaWeb;
 
-    // Relación con usuario
+    @Enumerated(EnumType.STRING)
+    private EstadoVerificacion estadoVerificacion = EstadoVerificacion.PENDIENTE;
+
     @OneToOne
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 
-    // === Constructores ===
+    @OneToMany(mappedBy = "fundacion")
+    private List<Animal> animales;
+
     public Fundacion() {}
 
-    public Fundacion(Usuario usuario, String mision, String nit, String paginaWeb) {
-        this.usuario = usuario;
-        this.mision = mision;
-        this.nit = nit;
-        this.paginaWeb = paginaWeb;
-    }
+    // Getters y Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    // === Getters y Setters ===
-    public long getId() {
-        return id;
-    }
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public String getNit() { return nit; }
+    public void setNit(String nit) { this.nit = nit; }
 
-    public String getMision() {
-        return mision;
-    }
+    public String getDireccion() { return direccion; }
+    public void setDireccion(String direccion) { this.direccion = direccion; }
 
-    public void setMision(String mision) {
-        this.mision = mision;
-    }
+    public String getTelefono() { return telefono; }
+    public void setTelefono(String telefono) { this.telefono = telefono; }
 
-    public String getNit() {
-        return nit;
-    }
+    public String getMision() { return mision; }
+    public void setMision(String mision) { this.mision = mision; }
 
-    public void setNit(String nit) {
-        this.nit = nit;
-    }
+    public String getPaginaWeb() { return paginaWeb; }
+    public void setPaginaWeb(String paginaWeb) { this.paginaWeb = paginaWeb; }
 
-    public String getPaginaWeb() {
-        return paginaWeb;
-    }
+    public EstadoVerificacion getEstadoVerificacion() { return estadoVerificacion; }
+    public void setEstadoVerificacion(EstadoVerificacion estadoVerificacion) { this.estadoVerificacion = estadoVerificacion; }
 
-    public void setPaginaWeb(String paginaWeb) {
-        this.paginaWeb = paginaWeb;
-    }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
+    public List<Animal> getAnimales() { return animales; }
+    public void setAnimales(List<Animal> animales) { this.animales = animales; }
 }

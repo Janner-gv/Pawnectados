@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar contraseña - Pawnectados</title>
+
+    <!-- RUTAS CORRECTAS PARA ARCHIVOS ESTÁTICOS -->
+    <link rel="stylesheet" href="/CSS/recuperar.css">
+    <link rel="shortcut icon" href="/IMG/huella.icon" type="image/x-icon">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Lado izquierdo (imagen) -->
+    <div class="image-side"></div>
+
+    <!-- Formulario -->
+    <div class="form-side">
+        <div class="form-box">
+            <h2>Recuperar contraseña</h2>
+            <p>Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</p>
+
+            <!-- RUTA CORRECTA PARA EL CONTROLADOR -->
+            <form action="/principal/recuperar" method="POST">
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+
+                <button type="submit">Enviar enlace</button>
+
+                <p class="mensaje" th:if="${mensaje}" th:text="${mensaje}"></p>
+            </form>
+
+            <a class="back" href="/login">← Regresar al inicio de sesión</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

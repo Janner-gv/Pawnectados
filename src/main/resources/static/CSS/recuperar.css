@@ -1,0 +1,96 @@
+/* ===== GENERAL ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: #f5f7fb;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* ===== LADO IZQUIERDO (IMAGEN) ===== */
+.image-side {
+    flex: 1;
+    background-image: url('https://images.unsplash.com/photo-1517849845537-4d257902454a');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.8);
+}
+
+/* ===== LADO DERECHO (FORMULARIO) ===== */
+.form-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+}
+
+.form-box {
+    width: 80%;
+    max-width: 380px;
+    padding: 40px;
+    background: #ffffff;
+}
+
+h2 {
+    margin: 0;
+    font-size: 28px;
+    color: #333;
+}
+
+p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* ===== INPUT ===== */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* ===== BOTÓN ===== */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #ff6f61;
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #ff3f34;
+}
+
+/* ===== MENSAJE ===== */
+.mensaje {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 600;
+    color: #007b00;
+}
+
+/* ===== VOLVER ===== */
+.back {
+    display: block;
+    margin-top: 30px;
+    text-decoration: none;
+    color: #444;
+    font-size: 14px;
+}
+
+.back:hover {
+    color: #ff6f61;
+}

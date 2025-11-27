@@ -1,6 +1,8 @@
 package com.example.Pawnectados.admin;
 
+import com.example.Pawnectados.models.Rol;
 import com.example.Pawnectados.models.Usuario;
+import com.example.Pawnectados.repositorios.RolRepository;
 import com.example.Pawnectados.services.AnimalService;
 import com.example.Pawnectados.services.DonacionService;
 import com.example.Pawnectados.services.UsuarioService;
@@ -25,6 +27,9 @@ public class AdminUserController {
     @Autowired
     private AnimalService animalService;
 
+    @Autowired
+    private RolRepository rolRepository; // 🔥 NECESARIO PARA CARGAR ROLES
+
     // 🔹 Verifica si el usuario tiene rol ADMIN
     private boolean esAdmin(Usuario usuario) {
         if (usuario == null || usuario.getRoles() == null) return false;
@@ -38,14 +43,15 @@ public class AdminUserController {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         if (!esAdmin(usuario)) return "redirect:/login";
 
-        // Todos los conteos como Long
-        Long totalUsuarios = usuarioService.contarUsuariosPorRol("ROLE_USER");
+        Long totalPersonasNaturales = usuarioService.contarUsuariosPorRol("ROLE_PERSONA_NATURAL");
+        Long totalPersonasJuridicas = usuarioService.contarUsuariosPorRol("ROLE_PERSONA_JURIDICA");
         Long totalFundaciones = usuarioService.contarUsuariosPorRol("ROLE_FUNDACION");
         Long totalVeterinarias = usuarioService.contarUsuariosPorRol("ROLE_VETERINARIA");
         Long totalDonaciones = donacionService.contarDonaciones();
-        long totalAnimales = animalService.contarAnimales();
+        Long totalAnimales = animalService.contarAnimales();
 
-        model.addAttribute("totalUsuarios", totalUsuarios);
+        model.addAttribute("totalPersonasNaturales", totalPersonasNaturales);
+        model.addAttribute("totalPersonasJuridicas", totalPersonasJuridicas);
         model.addAttribute("totalFundaciones", totalFundaciones);
         model.addAttribute("totalVeterinarias", totalVeterinarias);
         model.addAttribute("totalDonaciones", totalDonaciones);
@@ -67,12 +73,16 @@ public class AdminUserController {
 
     // 🟢 FORMULARIO DE EDICIÓN
     @GetMapping("/usuarios/{id}/editar")
-    public String editarUsuario(@PathVariable Long id, HttpSession session, Model model) {
-        Usuario usuario = (Usuario) session.getAttribute("usuario");
-        if (!esAdmin(usuario)) return "redirect:/login";
+    public String editarUsuario(@PathVariable("id") Long id, HttpSession session, Model model) {
+        Usuario admin = (Usuario) session.getAttribute("usuario");
+        if (!esAdmin(admin)) return "redirect:/login";
 
         Usuario u = usuarioService.obtenerPorId(id);
         if (u == null) return "redirect:/admin/Usuarios";
+
+        // 🔥 Agregar lista de roles para el select
+        List<Rol> roles = rolRepository.findAll();
+        model.addAttribute("rolesDisponibles", roles);
 
         model.addAttribute("usuario", u);
         return "admin/EditarUsuarios";
@@ -80,7 +90,10 @@ public class AdminUserController {
 
     // 🟢 PROCESAR ACTUALIZACIÓN
     @PostMapping("/usuarios/{id}/actualizar")
-    public String actualizarUsuario(@PathVariable Long id, @ModelAttribute Usuario usuarioActualizado, HttpSession session) {
+    public String actualizarUsuario(@PathVariable("id") Long id,
+                                    @ModelAttribute Usuario usuarioActualizado,
+                                    HttpSession session) {
+
         Usuario admin = (Usuario) session.getAttribute("usuario");
         if (!esAdmin(admin)) return "redirect:/login";
 
@@ -90,7 +103,8 @@ public class AdminUserController {
 
     // 🟢 ELIMINAR USUARIO
     @PostMapping("/usuarios/{id}/eliminar")
-    public String eliminarUsuario(@PathVariable Long id, HttpSession session) {
+    public String eliminarUsuario(@PathVariable("id") Long id, HttpSession session) {
+
         Usuario admin = (Usuario) session.getAttribute("usuario");
         if (!esAdmin(admin)) return "redirect:/login";
 
